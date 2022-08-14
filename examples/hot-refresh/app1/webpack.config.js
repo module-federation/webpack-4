@@ -8,10 +8,11 @@ module.exports = {
   entry: "./src/index.js",
   context: __dirname,
   output: {
-    filename: '[name].js',
-    chunkFilename: "[name].js",
+    filename: 'index.js',
+    chunkFilename: "index.js",
     path: `${__dirname}/dist`,
     publicPath: "http://localhost:9001/",
+    jsonpFunction: "app1_jsonp"
   },
   devServer: {
     hot: true,

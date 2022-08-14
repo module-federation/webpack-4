@@ -1,8 +1,7 @@
 import React from "react"
 
-export default function App1 (props) {
+export default function App2 (props) {
   return <div>
-    <div>app1: {Math.random()}</div>
-    {props.children}
+    app2: {new Date().toLocaleDateString()}
   </div>
 }

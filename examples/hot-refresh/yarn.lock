@@ -5038,9 +5038,11 @@ import-fresh@^3.2.1:
     resolve-from "^4.0.0"
 
 import-http-webpack-plugin@^1.0.0:
-  version "1.0.1"
-  resolved "https://registry.yarnpkg.com/import-http-webpack-plugin/-/import-http-webpack-plugin-1.0.1.tgz#9926c4af3e5ab4e7fbf5d43f594a16a01baeadbb"
-  integrity sha512-Ri4O7UMFTZrPUSh2jU0ps3dJcHg5lDenguHJhUd+2DFIU/ZJiR1A5AR/korID93kDrQNB76Al2ZHbGcrwBASHQ==
+  version "1.0.2"
+  resolved "https://registry.yarnpkg.com/import-http-webpack-plugin/-/import-http-webpack-plugin-1.0.2.tgz#2c2b722d63c537ad54866d45d93016bb63213cfb"
+  integrity sha512-aKdImfuEdbgtMh9Zc+v8ctdTR6qg9TB8F8IJpkc6Zv5U4lreElLZy8UNRgCiGVkcbNevr9Ucna04D4XrHyP5lg==
+  dependencies:
+    wpmjs "^1.0.0"
 
 import-local@^3.0.2:
   version "3.1.0"
@@ -5710,6 +5712,11 @@ locate-path@^6.0.0:
   integrity sha512-iPZK6eYjbxRu3uB4/WZ3EsEIMJFMqAoopl3R+zuq0UjcAm/MO6KCweDgPfP3elTztoKP3KtnVHxTn2NHBSDVUw==
   dependencies:
     p-locate "^5.0.0"
+
+lodash-es@^4.17.21:
+  version "4.17.21"
+  resolved "https://registry.yarnpkg.com/lodash-es/-/lodash-es-4.17.21.tgz#43e626c46e6591b7750beb2b50117390c609e3ee"
+  integrity sha512-mKnC+QJ9pWVzv+C4/U3rRsHapFfHvQFoFB92e52xeyGMcX6/OlIl78je1u8vePzYZSkkogMPJ2yjxxsb89cxyw==
 
 lodash._reinterpolate@^3.0.0:
   version "3.0.0"
@@ -7095,6 +7102,11 @@ proxy-addr@~2.0.7:
     forwarded "0.2.0"
     ipaddr.js "1.9.1"
 
+proxymise@^1.0.2:
+  version "1.0.2"
+  resolved "https://registry.yarnpkg.com/proxymise/-/proxymise-1.0.2.tgz#34a183fb9dba29b25d5f02a25edaf3b2b71161dd"
+  integrity sha512-ulIs+1o/y6o1B9wJiHT/SIy3QAO5HjxbikdWWrtd3pkqlC3IBcR69z7y3U2ycbbUZeQijQkgXLTqBSiIMK/3xA==
+
 prr@~1.0.1:
   version "1.0.1"
   resolved "https://registry.yarnpkg.com/prr/-/prr-1.0.1.tgz#d3fc114ba06995a45ec6893f484ceb1d78f5f476"
@@ -8317,6 +8329,11 @@ supports-preserve-symlinks-flag@^1.0.0:
   resolved "https://registry.yarnpkg.com/supports-preserve-symlinks-flag/-/supports-preserve-symlinks-flag-1.0.0.tgz#6eda4bd344a3c94aea376d4cc31bc77311039e09"
   integrity sha512-ot0WnXS9fgdkgIcePe6RHNk1WA8+muPa6cSjeR3V8K27q9BB1rTE3R1p7Hv0z1ZyAc8s6Vvv8DIyWf681MAt0w==
 
+systemjs@^6.12.2:
+  version "6.12.2"
+  resolved "https://registry.yarnpkg.com/systemjs/-/systemjs-6.12.2.tgz#b5be3591b8464c0f30d355e6d8838e38cfb70f63"
+  integrity sha512-m8E/zVRcfwPiCVtj7iAtL5JdfewnBVvq1HfnPlg30U3SIRCCj1sH2kDLl/PJJvgGB8rSZI65ZXmeZyQshK4aYg==
+
 tapable@^1.0.0, tapable@^1.1.3:
   version "1.1.3"
   resolved "https://registry.yarnpkg.com/tapable/-/tapable-1.1.3.tgz#a1fccc06b58db61fd7a45da2da44f5f3a3e67ba2"
@@ -9045,10 +9062,14 @@ worker-farm@^1.7.0:
   dependencies:
     errno "~0.1.7"
 
-wpmjs@^1.0.0-beta.11:
-  version "1.0.0"
-  resolved "https://registry.yarnpkg.com/wpmjs/-/wpmjs-1.0.0.tgz#46946a3a4c4d3f74c1a77299516183878dd20a06"
-  integrity sha512-acbtQxOy8zMojLAKfMEnZnZXGh3ho/rtGprHqoE422x/0h05O8Fcqeos6kAYbZyHtcRV1rWEMvcwmWjWVdDeLQ==
+wpmjs@^1.0.0, wpmjs@^1.0.0-beta.11:
+  version "1.0.2"
+  resolved "https://registry.yarnpkg.com/wpmjs/-/wpmjs-1.0.2.tgz#cc700315ad35793f68aedc3fc5c3d1c7f33f1c62"
+  integrity sha512-+n42wJWftZ7wErX2FGvpB4wC//GPkS8jGQOp3eMGVxThB/haQh1MIsyGG2VTIj1SNts4MoPrBUwVE3ALGDL69A==
+  dependencies:
+    lodash-es "^4.17.21"
+    proxymise "^1.0.2"
+    systemjs "^6.12.2"
 
 wrap-ansi@^7.0.0:
   version "7.0.0"

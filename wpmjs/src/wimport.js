@@ -3,9 +3,7 @@ import { merge } from "lodash-es"
 
 if (!window.System) {
   // 重复运行systemjs会导致异常
-  require("systemjs/dist/s")
-  require("systemjs/dist/extras/amd")
-  require("systemjs/dist/extras/module-types")
+  require("systemjs/dist/system")
 }
 require("./hack")
 
