@@ -1,7 +1,8 @@
 ## import-http-webpack-plugin
-使webpack4可以用同步的方式import远程资源
+使webpack4可以用同步的方式import远程资源, 可以在webpack4中使用类似webpack5的ModuleFederation、top-level await等特性
 
 在线尝试:
+
 https://stackblitz.com/github/wpmjs/wpmjs/tree/main/examples/hot-refresh?file=app2%2Fsrc%2FApp2.jsx
 
 使用方式:

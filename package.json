@@ -9,9 +9,10 @@
   "keywords": [
     "webpack",
     "systemjs",
-    "import-http",
+    "import http",
     "chunk",
-    "tol level await"
+    "tol level await",
+    "module federation"
   ],
   "homepage": "",
   "main": "lib/plugin.js",
