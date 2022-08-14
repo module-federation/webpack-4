@@ -9,7 +9,7 @@ module.exports = {
   context: __dirname,
   output: {
     filename: 'index.js',
-    chunkFilename: "index.js",
+    chunkFilename: "[name].js",
     path: `${__dirname}/dist`,
     publicPath: "http://localhost:9002/",
     jsonpFunction: "app2_jsonp",
@@ -31,9 +31,10 @@ module.exports = {
         "react-dom": "https://cdn.jsdelivr.net/npm/react-dom@17/umd/react-dom.development.js"
       },
       injects: [
-        fs.readFileSync("./wpmjs.js", {
-          encoding: "utf-8",
-        }).toString()
+        // fs.readFileSync(require.resolve("wpmjs"), {
+        //   encoding: "utf-8",
+        // }).toString(),
+        "https://cdn.jsdelivr.net/npm/wpmjs/dist/index.js"
       ],
     }),
     new HtmlWebpackPlugin()
