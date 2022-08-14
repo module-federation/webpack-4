@@ -9,7 +9,7 @@ module.exports = {
   plugins: [
     "@babel/plugin-transform-runtime",
     "transform-react-jsx",
-    // "react-refresh/babel",
+    "react-refresh/babel",
   ],
   sourceType: "unambiguous"
 }
