@@ -19,9 +19,9 @@ window.wpmjs.import("@scope/name/entry?query=1&query2=2")
 
 + ### 示例
 ```js
-import wpmjs from 'wpmjs';
+import 'wpmjs';
 
-wpmjs.setConfig({
+window.wpmjs.setConfig({
     "react": "react@17"
 });
 
@@ -55,7 +55,7 @@ wpmjs.setConfig({
 
 + ### 示例
 ``` jsx
-import wpmjs from 'wpmjs';
+import 'wpmjs';
 const { default: React, useState } = wpmjs.import('react@latest');
 useState // Proxy<Promise>
 await useState // function
@@ -73,7 +73,7 @@ await React.a.b.c.s.d.f.g // undefined
   * 未加载完成返回`undefined`。
 + ### 示例
 ``` jsx
-import wpmjs from 'wpmjs';
+import 'wpmjs';
 ;(async function () {
   await wpmjs.import('react@latest');
   const { default: React, useState } = wpmjs.get('react@latest')
