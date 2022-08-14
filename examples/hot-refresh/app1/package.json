@@ -1,12 +1,11 @@
 {
-  "name": "test-dev-server",
+  "name": "app1",
   "version": "1.0.0",
   "description": "",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
-    "dev": "cross-env NODE_ENV=development  webpack serve --mode development",
-    "build": "cross-env NODE_ENV=production  webpack  --mode production"
+    "start": "webpack serve --mode development",
+    "build": "webpack  --mode production"
   },
   "author": "",
   "license": "ISC",
@@ -22,11 +21,10 @@
     "babel-plugin-import": "^1.13.3",
     "babel-plugin-transform-react-jsx": "^6.24.1",
     "css-loader": "5",
-    "import-wpm-webpack-plugin": "^1.0.11",
+    "import-http-webpack-plugin": "^1.0.0",
     "mini-css-extract-plugin": "2.0.0",
     "react-refresh": "^0.14.0",
     "style-loader": "^3.3.1",
-    "system-context-webpack-plugin": "^1.0.0",
     "webpack": "4.46.0",
     "webpack-cli": "^4.10.0",
     "webpack-dev-server": "^4.10.0"

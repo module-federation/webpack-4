@@ -1,0 +1,36 @@
+{
+    "name": "wpmjs",
+    "version": "1.0.0",
+    "author": "",
+    "description": "使systemjs通过包名的方式加载资源",
+    "keywords": [
+        "systemjs"
+    ],
+    "files": [
+        "dist",
+        "src"
+    ],
+    "main": "dist/index.js",
+    "license": "ISC",
+    "scripts": {
+        "build": "cross-env NODE_ENV=production webpack --mode production",
+        "start": "cross-env NODE_ENV=development webpack serve --mode development"
+    },
+    "devDependencies": {
+        "@babel/core": "7.16.0",
+        "@babel/plugin-transform-runtime": "^7.15.8",
+        "@babel/preset-env": "^7.15.8",
+        "babel-loader": "8.2.3",
+        "clean-webpack-plugin": "3",
+        "cross-env": "^7.0.3",
+        "html-webpack-plugin": "4",
+        "webpack": "4",
+        "webpack-cli": "^4.10.0",
+        "webpack-dev-server": "^4.9.3"
+    },
+    "dependencies": {
+        "lodash-es": "^4.17.21",
+        "proxymise": "^1.0.2",
+        "systemjs": "^6.12.2"
+    }
+}
