@@ -6,7 +6,7 @@ https://stackblitz.com/github/wpmjs/wpmjs/tree/main/examples/hot-refresh?file=ap
 
 使用方式:
 ``` js
-import react from "https://cdn.jsdelivr.net/npm/react@17/umd/react.development.js"
+import React from "https://cdn.jsdelivr.net/npm/react@17/umd/react.development.js"
 import json from "https://cdn.jsdelivr.net/npm/vue@2.7.8/package.json"
 const vue = import("https://cdn.jsdelivr.net/npm/vue@2.7.8/dist/vue.js")
 
