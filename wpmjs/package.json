@@ -1,6 +1,6 @@
 {
     "name": "wpmjs",
-    "version": "1.0.6",
+    "version": "1.0.7",
     "author": "",
     "description": "使systemjs通过包名的方式加载资源",
     "keywords": [
@@ -13,6 +13,7 @@
         "type": "git",
         "url": "https://github.com/wpmjs/wpmjs/tree/main/wpmjs"
     },
+    "homepage": "https://github.com/wpmjs/wpmjs/tree/main/wpmjs",
     "files": [
         "dist",
         "src"
