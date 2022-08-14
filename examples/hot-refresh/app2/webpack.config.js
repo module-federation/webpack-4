@@ -21,6 +21,8 @@ module.exports = {
     headers: {
       'Access-Control-Allow-Origin': '*',
     },
+    allowedHosts: 'all',
+    historyApiFallback: true,
     port: 9002,
   },
   plugins: [
