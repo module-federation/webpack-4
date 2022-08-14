@@ -1,0 +1,28 @@
+{
+  "name": "import-http-webpack-plugin",
+  "version": "1.0.0",
+  "description": "",
+  "keywords": [
+    "webpack",
+    "systemjs",
+    "import-http",
+    "chunk-wait"
+  ],
+  "homepage": "",
+  "main": "lib/plugin.js",
+  "files": [
+    "lib"
+  ],
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": ""
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+  },
+  "devDependencies": {},
+  "peerDependencies": {
+    "webpack": "^4.3.0"
+  }
+}
