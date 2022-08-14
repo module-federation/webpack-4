@@ -1,6 +1,6 @@
 {
   "name": "import-http-webpack-plugin",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "",
   "repository": {
     "type": "git",
@@ -24,8 +24,7 @@
   },
   "author": "",
   "license": "ISC",
-  "dependencies": {
-  },
+  "dependencies": {},
   "devDependencies": {},
   "peerDependencies": {
     "webpack": "^4.3.0"
