@@ -1,5 +1,5 @@
 ## import-http-webpack-plugin
-使webpack4可以用同步的方式import远程资源, 可以在webpack4中使用类似webpack5的ModuleFederation、top-level await等特性
+使webpack4可以用同步的方式import远程资源, 可以在webpack4中达到类似webpack5的ModuleFederation、top-level await等特性同样的效果
 
 在线尝试:
 
@@ -31,9 +31,11 @@ module.exports = {
       },
       injects: [
         // 插入wpmjs sdk（必须, 两种方式任选其一）
+        // 1. 直接插入sdk代码, 因为sdk必须保证在每个chunk之前运行, 这种方式会使每个chunk变大
         // fs.readFileSync(require.resolve("wpmjs"), {
         //   encoding: "utf-8",
         // }).toString()
+        // 2. 使用远程sdk, 这种方式便于统一管理sdk版本, 不会使多个chunk变大, 但是推荐将sdk存放于自己的cdn, 如果使用npm的cdn比较慢
         "https://cdn.jsdelivr.net/npm/wpmjs/dist/index.js"
       ],
     })
