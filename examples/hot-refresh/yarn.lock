@@ -5038,9 +5038,9 @@ import-fresh@^3.2.1:
     resolve-from "^4.0.0"
 
 import-http-webpack-plugin@^1.0.0:
-  version "1.0.2"
-  resolved "https://registry.yarnpkg.com/import-http-webpack-plugin/-/import-http-webpack-plugin-1.0.2.tgz#2c2b722d63c537ad54866d45d93016bb63213cfb"
-  integrity sha512-aKdImfuEdbgtMh9Zc+v8ctdTR6qg9TB8F8IJpkc6Zv5U4lreElLZy8UNRgCiGVkcbNevr9Ucna04D4XrHyP5lg==
+  version "1.0.3"
+  resolved "https://registry.yarnpkg.com/import-http-webpack-plugin/-/import-http-webpack-plugin-1.0.3.tgz#bdc89fc320fc930ac1dfc13b34b0bb2f70754c9f"
+  integrity sha512-3EHBUriTlR+Y/LxPHnEQN9v+eT39qevbp6tKZAPGi2RYgERYaaMzxEhBCQzvbu/QZFvYeBOLE2gpdDXQsEjbvA==
   dependencies:
     wpmjs "^1.0.0"
 
@@ -9063,9 +9063,9 @@ worker-farm@^1.7.0:
     errno "~0.1.7"
 
 wpmjs@^1.0.0, wpmjs@^1.0.0-beta.11:
-  version "1.0.2"
-  resolved "https://registry.yarnpkg.com/wpmjs/-/wpmjs-1.0.2.tgz#cc700315ad35793f68aedc3fc5c3d1c7f33f1c62"
-  integrity sha512-+n42wJWftZ7wErX2FGvpB4wC//GPkS8jGQOp3eMGVxThB/haQh1MIsyGG2VTIj1SNts4MoPrBUwVE3ALGDL69A==
+  version "1.0.4"
+  resolved "https://registry.yarnpkg.com/wpmjs/-/wpmjs-1.0.4.tgz#0527f1e50aca8802d421984f1e11a6d5f4769c15"
+  integrity sha512-XMOIARNCVW2jWuJtJnmeXrTrqVALze7KIXf5NwF4PxMVD6tavfBH8W7QKizhUsZO7XSeaAojoDu6gGks9qi9qA==
   dependencies:
     lodash-es "^4.17.21"
     proxymise "^1.0.2"
