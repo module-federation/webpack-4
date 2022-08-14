@@ -9,7 +9,7 @@ yarn
 yarn start
 ```
 
-Both `app1` and `app2` are independently deployed apps:
+Both `app1` and `app2 ` are independently deployed apps:
 
 - `app1`: http://localhost:9001
 - `app2`: http://localhost:9002
