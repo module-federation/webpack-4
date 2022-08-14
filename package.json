@@ -24,7 +24,9 @@
   },
   "author": "",
   "license": "ISC",
-  "dependencies": {},
+  "dependencies": {
+    "wpmjs": "^1.0.0"
+  },
   "devDependencies": {},
   "peerDependencies": {
     "webpack": "^4.3.0"
