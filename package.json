@@ -2,11 +2,16 @@
   "name": "import-http-webpack-plugin",
   "version": "1.0.0",
   "description": "",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/zhangHongEn/import-http-webpack-plugin/tree/main"
+  },
   "keywords": [
     "webpack",
     "systemjs",
     "import-http",
-    "chunk-wait"
+    "chunk",
+    "tol level await"
   ],
   "homepage": "",
   "main": "lib/plugin.js",
