@@ -52,7 +52,7 @@ function getPkgUrl(pkgname) {
   if (!name) {
     throw new Error("请传入正确的包名:[@]pkgName[@latest | @x.x]")
   }
-  let importOptions = {name, version, query, entry}
+  let importOptions = {name, version, query, entry, env: config.env}
   let resolveImportOptions = {...importOptions}
   // 解析请求参数
   const onResolveSet = eventMap.get("resolve") || new Set()
