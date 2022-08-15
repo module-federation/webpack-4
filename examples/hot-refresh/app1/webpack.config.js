@@ -29,7 +29,8 @@ module.exports = {
     new ImportHttpPlugin({
       alias: {
         react: "https://cdn.jsdelivr.net/npm/react@17/umd/react.development.js",
-        "react-dom": "https://cdn.jsdelivr.net/npm/react-dom@17/umd/react-dom.development.js"
+        "react-dom": "https://cdn.jsdelivr.net/npm/react-dom@17/umd/react-dom.development.js",
+        "react-refresh/runtime": "https://cdn.jsdelivr.net/npm/react-refresh-umd@0/dist/index.js",
       },
       injects: [
         // fs.readFileSync(require.resolve("wpmjs"), {
