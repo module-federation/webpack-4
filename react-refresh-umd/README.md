@@ -1,5 +1,5 @@
 ## react-refresh-umd
-一般用于ModuleFederation、wpmjs等微前端方案
+一般用于ModuleFederation、[import-http-webpack-plugin](https://www.npmjs.com/package/import-http-webpack-plugin)等微前端方案
 
 react热更新必要条件:
 1. react-refresh、react-dom、react单例
