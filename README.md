@@ -28,7 +28,8 @@ module.exports = {
     new ImportHttpPlugin({
       alias: {
         react: "https://cdn.jsdelivr.net/npm/react@17/umd/react.development.js",
-        "react-dom": "https://cdn.jsdelivr.net/npm/react-dom@17/umd/react-dom.development.js"
+        "react-dom": "https://cdn.jsdelivr.net/npm/react-dom@17/umd/react-dom.development.js",
+        "react-refresh/runtime": "https://cdn.jsdelivr.net/npm/react-refresh-umd@0/dist/index.js", // dev模式配合@pmmmwh/react-refresh-webpack-plugin热更新
       },
       injects: [
         // 插入wpmjs sdk（必须, 两种方式任选其一）
