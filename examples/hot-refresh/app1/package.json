@@ -10,21 +10,18 @@
   "author": "",
   "license": "ISC",
   "devDependencies": {
-    "@babel/core": "7.16.0",
-    "@babel/plugin-transform-runtime": "^7.15.8",
-    "@babel/preset-env": "^7.16.4",
+    "@babel/core": "^7.14.3",
+    "@babel/preset-react": "^7.13.13",
     "@pmmmwh/react-refresh-webpack-plugin": "^0.5.7",
     "babel-loader": "^8.2.3",
-    "babel-plugin-import": "^1.13.3",
-    "babel-plugin-transform-react-jsx": "^6.24.1",
     "import-http-webpack-plugin": "^1.0.0",
     "react-refresh": "^0.14.0",
     "webpack": "4.46.0",
     "webpack-cli": "^4.10.0",
-    "webpack-dev-server": "^4.10.0"
+    "webpack-dev-server": "^4.10.0",
+    "html-webpack-plugin": "4"
   },
   "dependencies": {
-    "html-webpack-plugin": "4",
     "wpmjs": "^1.0.0"
   }
 }
