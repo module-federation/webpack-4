@@ -4195,6 +4195,11 @@ posix-character-classes@^0.1.0:
   resolved "https://registry.yarnpkg.com/posix-character-classes/-/posix-character-classes-0.1.1.tgz#01eac0fe3b5af71a2a6c02feabb8c1fef7e00eab"
   integrity sha512-xTgYBc3fuo7Yt7JbiuFxSYGToMoz8fLoE6TC9Wx1P/u+LfeThMOAqmuyECnlBaaJb+u1m9hHiXUEtwW4OzfUJg==
 
+pre-get@^1.0.3:
+  version "1.0.3"
+  resolved "https://registry.yarnpkg.com/pre-get/-/pre-get-1.0.3.tgz#0986806dc5424426d086d8d9a96949882b6c161b"
+  integrity sha512-CJAQUYc2unTzrv13Q4SSmKmFOT8c+NVllyxpQJdP6Fg9JcDs9yKLEchIOvIv/7Dnc+1rxW4eyUhwOgDQ+7VMRg==
+
 pretty-error@^2.1.1:
   version "2.1.2"
   resolved "https://registry.yarnpkg.com/pretty-error/-/pretty-error-2.1.2.tgz#be89f82d81b1c86ec8fdfbc385045882727f93b6"
@@ -4225,11 +4230,6 @@ proxy-addr@~2.0.7:
   dependencies:
     forwarded "0.2.0"
     ipaddr.js "1.9.1"
-
-proxymise@^1.0.2:
-  version "1.0.2"
-  resolved "https://registry.yarnpkg.com/proxymise/-/proxymise-1.0.2.tgz#34a183fb9dba29b25d5f02a25edaf3b2b71161dd"
-  integrity sha512-ulIs+1o/y6o1B9wJiHT/SIy3QAO5HjxbikdWWrtd3pkqlC3IBcR69z7y3U2ycbbUZeQijQkgXLTqBSiIMK/3xA==
 
 prr@~1.0.1:
   version "1.0.1"
