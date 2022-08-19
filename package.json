@@ -26,7 +26,8 @@
   "author": "",
   "license": "ISC",
   "dependencies": {
-    "wpmjs": "^1.0.0"
+    "wpmjs": "^1.0.0",
+    "pre-get": "^1.0.3"
   },
   "devDependencies": {},
   "peerDependencies": {
