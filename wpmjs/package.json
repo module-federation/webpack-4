@@ -38,7 +38,7 @@
     },
     "dependencies": {
         "lodash-es": "^4.17.21",
-        "proxymise": "^1.0.2",
+        "pre-get": "^1.0.3",
         "systemjs": "^6.12.2"
     }
 }
