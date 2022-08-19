@@ -1,4 +1,4 @@
-import proxymise from 'proxymise';
+import preget from 'pre-get';
 import { merge } from "lodash-es"
 
 if (!window.System) {
@@ -105,7 +105,7 @@ function wimport(pkgname) {
     if (module) break
   }
 
-  const pkgPromise = proxymise(Promise.resolve(module || defaultResolveModule({
+  const pkgPromise = preget(Promise.resolve(module || defaultResolveModule({
     url: pkgUrl.url,
     entry: pkgUrl.entry
   })));
