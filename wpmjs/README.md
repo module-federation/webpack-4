@@ -1,5 +1,5 @@
 ## wpmjs
-对systemjs的封装, 以pkgname的方式引资源 提供了些比较便利的API（调试模式API待补充）, 一般用于构建工具[import-http-webpack-plugin](https://www.npmjs.com/package/import-http-webpack-plugin)
+对systemjs的封装, 以pkgname的方式引资源 提供了些比较便利的API, 一般用于构建工具[import-http-webpack-plugin](https://www.npmjs.com/package/import-http-webpack-plugin)
 ``` js
 window.wpmjs.import("@scope/name/entry?query=1&query2=2")
 ```

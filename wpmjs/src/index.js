@@ -1,7 +1,11 @@
-import wimport from './wimport';
 
-if (!window.wpmjs) {
-  window.wpmjs = wimport;
+
+if (!window.System) {
+  // 重复运行systemjs会导致异常
+  require("systemjs/dist/s")
+  require("systemjs/dist/extras/amd")
+  require("systemjs/dist/extras/module-types")
 }
-
-export default wimport
+if (!window.System.__wpmjs) {
+  require("./wpmjsObject").default 
+}
