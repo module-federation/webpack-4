@@ -12,7 +12,8 @@ module.exports = {
     chunkFilename: "[name].js",
     path: `${__dirname}/dist`,
     publicPath: "http://localhost:9001/",
-    jsonpFunction: "app1_jsonp"
+    jsonpFunction: "app1_jsonp",
+    libraryTarget: "umd"
   },
   devServer: {
     hot: true,
@@ -28,15 +29,26 @@ module.exports = {
     new ReactRefreshPlugin(),
     new ImportHttpPlugin({
       alias: {
-        react: "https://cdn.jsdelivr.net/npm/react@17/umd/react.development.js",
-        "react-dom": "https://cdn.jsdelivr.net/npm/react-dom@17/umd/react-dom.development.js",
-        "react-refresh/runtime": "https://cdn.jsdelivr.net/npm/react-refresh-umd@0/dist/index.js",
+        react: "wpmjs/$/react",
+        "react-dom": "wpmjs/$/react-dom",
+        "react-refresh/runtime": "wpmjs/$/react-refresh/runtime",
+      },
+      init: {
+        map: {
+          react: "https://unpkg.zhimg.com/react@17/umd/react.development.js",
+          "react-dom": {
+            "url": "https://unpkg.zhimg.com/react-dom@17/umd/react-dom.development.js",
+            "deps": ["react-refresh/runtime", "vue"]
+          },
+          "react-refresh/runtime": {
+            "url": "https://unpkg.zhimg.com/react-refresh-umd@0/dist/index.js",
+            deps: []
+          },
+          "vue": "https://unpkg.zhimg.com/vue@2.6.14/dist/vue.js",
+        },
       },
       injects: [
-        // fs.readFileSync(require.resolve("wpmjs"), {
-        //   encoding: "utf-8",
-        // }).toString()
-        "https://cdn.jsdelivr.net/npm/wpmjs/dist/index.js"
+        "https://cdn.jsdelivr.net/npm/wpmjs@2/dist/index.js",
       ],
     }),
     new HtmlWebpackPlugin()

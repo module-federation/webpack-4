@@ -13,7 +13,7 @@ module.exports = {
     path: `${__dirname}/dist`,
     publicPath: "http://localhost:9002/",
     jsonpFunction: "app2_jsonp",
-    libraryTarget: "system"
+    libraryTarget: "umd"
   },
   devServer: {
     hot: true,
@@ -33,11 +33,22 @@ module.exports = {
         "react-dom": "https://cdn.jsdelivr.net/npm/react-dom@17/umd/react-dom.development.js",
         "react-refresh/runtime": "https://cdn.jsdelivr.net/npm/react-refresh-umd@0/dist/index.js",
       },
+      init: {
+        map: {
+          react: "https://unpkg.zhimg.com/react@17/umd/react.development.js",
+          "react-dom": {
+            "url": "https://unpkg.zhimg.com/react-dom@17/umd/react-dom.development.js",
+            "deps": ["react-refresh/runtime", "vue"]
+          },
+          "react-refresh/runtime": {
+            "url": "https://unpkg.zhimg.com/react-refresh-umd@0/dist/index.js",
+            deps: []
+          },
+          "vue": "https://unpkg.zhimg.com/vue@2.6.14/dist/vue.js",
+        },
+      },
       injects: [
-        // fs.readFileSync(require.resolve("wpmjs"), {
-        //   encoding: "utf-8",
-        // }).toString(),
-        "https://cdn.jsdelivr.net/npm/wpmjs/dist/index.js"
+        "https://cdn.jsdelivr.net/npm/wpmjs@2/dist/index.js"
       ],
     }),
     new HtmlWebpackPlugin()
