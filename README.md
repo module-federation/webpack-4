@@ -1,5 +1,5 @@
 ## import-http-webpack-plugin
-使webpack4可以用同步的方式import远程资源, 类似webpack5的ModuleFederation、top-level await等特性, 优化开发体验、构建速度、发布效率
+使webpack4可以用同步的方式import远程资源, 优化开发体验、构建速度、发布效率
 
 
 在线尝试（包含开发热更新）:
