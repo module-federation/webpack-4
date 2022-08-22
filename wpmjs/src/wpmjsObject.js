@@ -17,8 +17,9 @@ if (!window.System.__wpmjs__) {
 
 require("./utils/resolve")
 require("./utils/hackGet")
+require("./utils/hackWebpackLibrary")
 require("./utils/hackDeps")
-require("./hack")
+require("./utils/hackWebpackExportPromise")
 
 
 // const pkgCache = {
