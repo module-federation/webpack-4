@@ -22,6 +22,5 @@
     "html-webpack-plugin": "4"
   },
   "dependencies": {
-    "wpmjs": "^1.0.0"
   }
 }
