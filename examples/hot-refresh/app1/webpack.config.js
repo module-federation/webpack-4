@@ -29,9 +29,9 @@ module.exports = {
     new ReactRefreshPlugin(),
     new ImportHttpPlugin({
       alias: {
-        react: "wpmjs/$/react",
-        "react-dom": "wpmjs/$/react-dom",
-        "react-refresh/runtime": "wpmjs/$/react-refresh/runtime",
+        react: "https://cdn.jsdelivr.net/npm/react@17/umd/react.development.js",
+        "react-dom": "https://cdn.jsdelivr.net/npm/react-dom@17/umd/react-dom.development.js",
+        "react-refresh/runtime": "https://cdn.jsdelivr.net/npm/react-refresh-umd@0",
       },
       init: {
         map: {
@@ -41,14 +41,14 @@ module.exports = {
             "deps": ["react-refresh/runtime", "vue"]
           },
           "react-refresh/runtime": {
-            "url": "https://unpkg.zhimg.com/react-refresh-umd@0/dist/index.js",
+            "url": "https://unpkg.zhimg.com/react-refresh-umd@0",
             deps: []
           },
           "vue": "https://unpkg.zhimg.com/vue@2.6.14/dist/vue.js",
         },
       },
       injects: [
-        "https://cdn.jsdelivr.net/npm/wpmjs@2/dist/index.js",
+        "https://cdn.jsdelivr.net/npm/wpmjs@2",
       ],
     }),
     new HtmlWebpackPlugin()
