@@ -9,6 +9,9 @@ const obj = {
   get (id) {
     return this.idModuleMap[id]
   },
+  import(id) {
+    return window.System.import(id)
+  },
   setConfig
 }
 if (!window.System.__wpmjs__) {
