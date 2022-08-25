@@ -27,16 +27,6 @@ module.exports = {
   plugins: [
     new ImportHttpPlugin({
       alias: {
-        react: "https://cdn.jsdelivr.net/npm/react@17/umd/react.development.js",
-        "react-dom": "https://cdn.jsdelivr.net/npm/react-dom@17/umd/react-dom.development.js",
-        "react-refresh/runtime": "https://cdn.jsdelivr.net/npm/react-refresh-umd@0/dist/index.js", // dev模式配合@pmmmwh/react-refresh-webpack-plugin热更新
-      },
-      injects: [
-
-      ],
-    }),
-    new ImportHttpPlugin({
-      alias: {
         // wpmjs/$/[pkgname] 此种格式表示这个包走远程, 不参与本地构建
         react: "wpmjs/$/react",
         "react-dom": "wpmjs/$/react-dom",
