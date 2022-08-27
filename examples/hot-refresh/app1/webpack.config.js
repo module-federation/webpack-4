@@ -28,27 +28,25 @@ module.exports = {
   plugins: [
     new ReactRefreshPlugin(),
     new ImportHttpPlugin({
-      alias: {
-        react: "https://cdn.jsdelivr.net/npm/react@17/umd/react.development.js",
-        "react-dom": "https://cdn.jsdelivr.net/npm/react-dom@17/umd/react-dom.development.js",
-        "react-refresh/runtime": "https://cdn.jsdelivr.net/npm/react-refresh-umd@0",
-      },
       init: {
-        map: {
-          react: "https://unpkg.zhimg.com/react@17/umd/react.development.js",
-          "react-dom": {
-            "url": "https://unpkg.zhimg.com/react-dom@17/umd/react-dom.development.js",
-            "deps": ["react-refresh/runtime", "vue"]
-          },
-          "react-refresh/runtime": {
-            "url": "https://unpkg.zhimg.com/react-refresh-umd@0",
-            deps: []
-          },
-          "vue": "https://unpkg.zhimg.com/vue@2.6.14/dist/vue.js",
+        resolvePath(request) {
+          return "https://exam.com/" + request.name + "/" + request.version.replace("@", "") + "/index.js" + (request.query ? "?" + request.query : request.query)
+        }
+      },
+      remotes: {
+        react: "https://assets.weimob.com/react@17/umd/react.development.js",
+        "react-dom": {
+          "url": "https://assets.weimob.com/react-dom@17/umd/react-dom.development.js",
+          "deps": ["react-refresh/runtime", "vue"]
         },
+        "react-refresh/runtime": {
+          "url": "https://assets.weimob.com/react-refresh-umd@0",
+          deps: []
+        },
+        "vue": "https://assets.weimob.com/vue@2.6.14/dist/vue.js",
       },
       injects: [
-        "https://cdn.jsdelivr.net/npm/wpmjs@2",
+        "https://assets.weimob.com/wpmjs@2",
       ],
     }),
     new HtmlWebpackPlugin()
