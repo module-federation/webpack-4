@@ -39,10 +39,7 @@ module.exports = {
           "url": "https://assets.weimob.com/react-dom@17/umd/react-dom.development.js",
           "deps": ["react-refresh/runtime", "vue"]
         },
-        "react-refresh/runtime": {
-          "url": "https://assets.weimob.com/react-refresh-umd@0",
-          deps: []
-        },
+        "react-refresh/runtime": "https://assets.weimob.com/react-refresh-umd@0",
         "vue": "https://assets.weimob.com/vue@2.6.14/dist/vue.js",
       },
       injects: [

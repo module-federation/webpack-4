@@ -16,6 +16,7 @@ window.System.__wpmjs__.import("@scope/name/entry?query=1&query2=2")
   |  env | string  | "" | 区分环境 |
   |  map | object  | {} | 包配置, 全局生效 |
   | resolvePath | function | | 统一管理包url |
+  | resolveEntryFile | function | | 统一管理包url |
 
 
 + ### 示例
@@ -35,9 +36,14 @@ window.System.__wpmjs__.setConfig({
           "deps": ["react-refresh/runtime"]
         }
     },
-    resolvePath(request) {
-      return "https://exam.com/" + request.name + "/" + request.version.replace("@", "") + "/index.js" + (request.query ? "?" + request.query : request.query)
-    }
+    init: {
+      resolvePath: function(request) {
+        return "https://exam.com/" + request.name + "@" + request.version
+      },
+      resolveEntryFile(request) {
+        return "/index.js"
+      }
+    },
 })
 
 ```

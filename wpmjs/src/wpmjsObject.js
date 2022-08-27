@@ -25,6 +25,12 @@ const obj = {
       }
     }) ）`, request)
   },
+  resolveEntryFile(request) {
+    return "/index.js"
+  },
+  resolveQuery(request) {
+    return request.query ? `?${request.query}` : ""
+  },
   resolveModule(modulePromise, id) {
     return modulePromise.then(res => {
       if (/^https?:\/\//.test(id)) return res
@@ -63,9 +69,10 @@ function setConfig(customConfig = {}) {
     map = {},
     resolvePath,
     dev = obj.dev,
-    env
+    env,
+    resolveEntryFile
   } = customConfig
-  if (obj.env)
+  if (!obj.env) obj.env = env
   obj.dev = dev
   Object.keys(map).forEach(key => {
     if (key in this.idConfigMap) return
@@ -73,6 +80,9 @@ function setConfig(customConfig = {}) {
   })
   if (resolvePath) {
     obj.resolvePath = resolvePath
+  }
+  if (resolveEntryFile) {
+    obj.resolveEntryFile = resolveEntryFile
   }
 }
 

@@ -33,13 +33,16 @@ export function getUrl(id) {
     return config.url
   }
   const mapRequest = config ? resolveRequest(config.url) : request
-  return window.System.__wpmjs__.resolvePath({
+  const targetRequest = {
     name: mapRequest.name || request.name,
     version: mapRequest.version || request.version,
     entry: mapRequest.entry || request.entry,
     query: mapRequest.query || request.query,
     env: window.System.__wpmjs__.env
-  })
+  }
+  return window.System.__wpmjs__.resolvePath(targetRequest) + 
+    window.System.__wpmjs__.resolveEntryFile(targetRequest) +
+    window.System.__wpmjs__.resolveQuery(targetRequest)
 }
 
 const existingHook = System.constructor.prototype.resolve;
