@@ -30,7 +30,10 @@ module.exports = {
     new ImportHttpPlugin({
       init: {
         resolvePath(request) {
-          return "https://exam.com/" + request.name + "/" + request.version.replace("@", "") + "/index.js" + (request.query ? "?" + request.query : request.query)
+          return "https://exam.com/" + request.name + "@" + request.version
+        },
+        resolveEntryFile(request) {
+          return "/index.js"
         }
       },
       remotes: {
@@ -41,9 +44,10 @@ module.exports = {
         },
         "react-refresh/runtime": "https://assets.weimob.com/react-refresh-umd@0",
         "vue": "https://assets.weimob.com/vue@2.6.14/dist/vue.js",
+        "test": "test"
       },
       injects: [
-        "https://assets.weimob.com/wpmjs@2",
+        "https://assets.weimob.com/wpmjs@2/dist/index.js",
       ],
     }),
     new HtmlWebpackPlugin()

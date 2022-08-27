@@ -30,7 +30,7 @@ module.exports = {
     new ImportHttpPlugin({
       init: {
         resolvePath(request) {
-          return "https://exam.com/" + request.name + "/" + request.version.replace("@", "") + "/index.js" + (request.query ? "?" + request.query : request.query)
+          return "https://exam.com/" + request.name + "@" + request.version
         }
       },
       remotes: {
@@ -43,7 +43,7 @@ module.exports = {
         "vue": "https://assets.weimob.com/vue@2.6.14/dist/vue.js",
       },
       injects: [
-        "https://assets.weimob.com/wpmjs@2",
+        "https://assets.weimob.com/wpmjs@2/dist/index.js",
       ],
     }),
     new HtmlWebpackPlugin()
