@@ -1,6 +1,6 @@
 import React from 'react';
-import json from "https://cdn.jsdelivr.net/npm/vue@2.7.8/package.json"
-const vue = import("https://cdn.jsdelivr.net/npm/vue@2.7.8/dist/vue.js")
+import json from "https://assets.weimob.com/vue@2.7.8/package.json"
+const vue = import("https://assets.weimob.com/vue@2.7.8/dist/vue.js")
 
 ;(async function () {
   console.log('json:', json)
