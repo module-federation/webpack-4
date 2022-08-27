@@ -17,6 +17,7 @@ window.System.__wpmjs__.import("@scope/name/entry?query=1&query2=2")
   |  map | object  | {} | 包配置, 全局生效 |
   | resolvePath | function | | 统一管理包url |
   | resolveEntryFile | function | | 统一管理包url |
+  | resolveQuery | function | | 统一管理包url |
 
 
 + ### 示例

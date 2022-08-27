@@ -2,8 +2,8 @@ import preget from 'pre-get';
 import resolveRequest from './utils/resolveRequest';
 
 const obj = {
-  env: '',
-  dev: localStorage.getItem('wpm-debug-open') == 1,
+  env: null,
+  dev: null,
   idConfigMap: {
   },
   urlIdMap: {},
@@ -49,6 +49,9 @@ const obj = {
   },
   setConfig,
 }
+;["resolveEntryFile", "resolvePath", "resolveQuery"].forEach(name => {
+  obj[name].__wpm__defaultProp = true
+})
 // window.wpmjs = Object.assign(function (id) {
 //   return obj.import(id)
 // }, obj)
@@ -68,21 +71,25 @@ function setConfig(customConfig = {}) {
   const {
     map = {},
     resolvePath,
-    dev = obj.dev,
+    dev,
     env,
-    resolveEntryFile
+    resolveEntryFile,
+    resolveQuery
   } = customConfig
-  if (!obj.env) obj.env = env
-  obj.dev = dev
+  if (obj.env == null) obj.env = env
+  if (obj.dev == null) obj.dev = dev
   Object.keys(map).forEach(key => {
     if (key in this.idConfigMap) return
     this.idConfigMap[key] = map[key]
   })
-  if (resolvePath) {
+  if (resolvePath && obj.resolvePath.__wpm__defaultProp) {
     obj.resolvePath = resolvePath
   }
-  if (resolveEntryFile) {
+  if (resolveEntryFile && obj.resolveEntryFile.__wpm__defaultProp) {
     obj.resolveEntryFile = resolveEntryFile
+  }
+  if (resolveQuery && obj.resolveQuery.__wpm__defaultProp) {
+    obj.resolveQuery = resolveQuery
   }
 }
 
