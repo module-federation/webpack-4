@@ -8,7 +8,7 @@ window.System.__wpmjs__.import("@scope/name/entry?query=1&query2=2")
 
 ## setConfig
 + ### 参数
-  window.System.__wpmjs__.setConfig(options)
+  setConfig(options)
   * options
 
   |  参数   | 类型 | 默认值  | 作用  |
@@ -51,12 +51,7 @@ window.System.__wpmjs__.setConfig({
 
 ## import
 + ### 参数
-``` js
-  window.System.__wpmjs__.import(`@[scope]/[name]@[version]/[entry]?[query]`)
-  // 也可以直接用域名请求, 不会经过resolvePath、resolve拦截器
-  window.System.__wpmjs__.import(`http://xxxxxx`)
-```
-  例: 
+import(str)
   * import "react"
   * import "antd@latest/button?a=2"
 
