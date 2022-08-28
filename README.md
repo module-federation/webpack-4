@@ -30,29 +30,44 @@ module.exports = {
     new ImportHttpPlugin({
       init: {
         resolvePath(request) {
-          return "https://exam.com/" + request.name + "/" + request.version.replace("@", "") + "/index.js" + (request.query ? "?" + request.query : request.query)
+          return "https://assets.weimob.com/" + request.name + (request.version ? "@" + request.version : "")
+        },
+        resolveEntryFile(request) {
+          return "/dist/index.js"
         }
       },
+      /**
+       * 配置本次构建使用的远程依赖
+       * remotes配置有2种类型
+       */
       remotes: {
-        react: "https://assets.weimob.com/react@17/umd/react.development.js",
-        "react-dom": {
-          "url": "https://assets.weimob.com/react-dom@17/umd/react-dom.development.js",
-          "deps": ["react-refresh/runtime", "vue"]
-        },
-        "react-refresh/runtime": {
-          "url": "https://assets.weimob.com/react-refresh-umd@0",
-          deps: []
-        },
-        "vue": "https://assets.weimob.com/vue@2.6.14/dist/vue.js",
+        // 1. 使用远程的包 
+        "react@17": "https://assets.weimob.com/react@17/umd/react.development.js",
+        "react-dom@17": "https://assets.weimob.com/react-dom@17/umd/react-dom.development.js",
+        "react-refresh/runtime": "https://assets.weimob.com/react-refresh-umd@0",
+        "react-refresh": "https://assets.weimob.com/react-refresh-umd@0",
+
+        // 2. 使用统一包管理平台
+        "test@3": "test",
+      },
+      /**
+       * dev模式时的远程包, 比如开发时热更新需要react.development版本
+       */
+      devRemotes: {
+        "react@17": "https://assets.weimob.com/react@17/umd/react.development.js",
+        "react-dom@17": "https://assets.weimob.com/react-dom@17/umd/react-dom.development.js",
+      },
+      defineRemotes: {
+        // 如果使用的远程包不是自己构建的, 且包有依赖, 则需要在此处配置依赖映射
+        "react-dom@17": {
+          "deps": [
+            "react-refresh/runtime",
+            { name: "react", target: "react@17" }
+          ]
+        }
       },
       injects: [
-        // 插入wpmjs sdk（必须, 两种方式任选其一）
-        // 1. 直接插入sdk代码, sdk会插入在每个chunk之前
-        // fs.readFileSync(require.resolve("wpmjs"), {
-        //   encoding: "utf-8",
-        // }).toString()
-        // 2. 使用远程sdk, 便于统一管理sdk版本, 推荐将sdk存放于自己的cdn
-        "https://assets.weimob.com/wpmjs@2",
+        "https://assets.weimob.com/wpmjs@2/dist/index.js",
       ],
     })
   ]
