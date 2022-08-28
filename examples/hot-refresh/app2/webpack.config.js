@@ -26,7 +26,9 @@ module.exports = {
     port: 9002,
   },
   plugins: [
-    new ReactRefreshPlugin(),
+    new ReactRefreshPlugin({
+      overlay: false
+    }),
     new ImportHttpPlugin({
       init: {
         resolvePath(request) {
@@ -41,6 +43,7 @@ module.exports = {
         },
         "react-refresh/runtime": "https://assets.weimob.com/react-refresh-umd@0",
         "vue": "https://assets.weimob.com/vue@2.6.14/dist/vue.js",
+        "test": "test"
       },
       injects: [
         "https://assets.weimob.com/wpmjs@2/dist/index.js",
