@@ -4,8 +4,11 @@ import resolveRequest from './utils/resolveRequest';
 const obj = {
   env: null,
   dev: null,
-  idConfigMap: {
+
+  idUrlMap: {
   },
+  idDefineMap: {},
+  devIdUrlMap: {},
   urlIdMap: {},
   idModuleMap: {},
   idModulePromiseMap: {},
@@ -26,7 +29,7 @@ const obj = {
     }) ）`, request)
   },
   resolveEntryFile(request) {
-    return "/index.js"
+    return ""
   },
   resolveQuery(request) {
     return request.query ? `?${request.query}` : ""
@@ -69,18 +72,33 @@ require("./utils/hackWebpackExportPromise")
 
 function setConfig(customConfig = {}) {
   const {
-    map = {},
+    idUrlMap = {},
+    idDefineMap = {},
+    devIdUrlMap = {},
     resolvePath,
     dev,
     env,
     resolveEntryFile,
-    resolveQuery
+    resolveQuery,
   } = customConfig
   if (obj.env == null) obj.env = env
   if (obj.dev == null) obj.dev = dev
-  Object.keys(map).forEach(key => {
-    if (key in this.idConfigMap) return
-    this.idConfigMap[key] = map[key]
+  Object.keys(idUrlMap).forEach(key => {
+    if (key in this.idUrlMap) return
+    this.idUrlMap[key] = idUrlMap[key]
+    this.urlIdMap[idUrlMap[key].split("?")[0]] = key
+  })
+  if (obj.dev) {
+    Object.keys(devIdUrlMap).forEach(key => {
+      if (key in this.devIdUrlMap) return
+      this.devIdUrlMap[key] = devIdUrlMap[key]
+      this.idUrlMap[key] = devIdUrlMap[key]
+      this.urlIdMap[devIdUrlMap[key].split("?")[0]] = key
+    })
+  }
+  Object.keys(idDefineMap).forEach(key => {
+    if (key in this.idDefineMap) return
+    this.idDefineMap[key] = idDefineMap[key]
   })
   if (resolvePath && obj.resolvePath.__wpm__defaultProp) {
     obj.resolvePath = resolvePath

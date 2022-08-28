@@ -1,38 +1,66 @@
 import resolveRequest from "./resolveRequest"
 
 const {
-  idConfigMap,
+  idUrlMap,
   urlIdMap,
+  idDefineMap,
 } = window.System.__wpmjs__
 
 export function getConfig(id, request) {
   if (/^https?:\/\//.test(id)) {
-    return idConfigMap[id]
+    return idUrlMap[id]
   }
-  request = request || resolveRequest(id)
-  const {name, version, entry} = request
-  let config = idConfigMap[id] || 
-    idConfigMap[`${name}@${version}${entry ? `/${entry}` : ""}`] || 
-    idConfigMap[`${name}@${version}`] ||
-    idConfigMap[`${name}`]
+  // request = request || resolveRequest(id)
+  // const {name, version, entry} = request
+  // let config = idUrlMap[id] || 
+  //   idUrlMap[`${name}@${version}${entry ? `/${entry}` : ""}`] || 
+  //   idUrlMap[`${name}@${version}`] ||
+  //   idUrlMap[`${name}`]
   return config
 }
 
-export function getUrl(id) {
+export function getIdByUrl(url = "") {
+  if (!url) return
+  url = url.split("?")[0]
+  return urlIdMap[url]
+}
+
+/**
+ * 检查id作为依赖的url
+ * @param {*} id 
+ * @param {*} parentUrl 
+ */
+export function getDepUrl(id, parentUrl = "") {
+  const config = idDefineMap[getIdByUrl(parentUrl)]
+  if (!config) return
+  return config?.deps
+    .filter(item => {
+      if (item === id || item.name === id) {
+        return true
+      }
+    })
+    .map(item => getPkgUrl(typeof item === "string" ? item : item.target))
+    ?.[0]
+}
+
+/**
+ * 获取当前请求的包的url
+ * 当前包可能是一个依赖, 比如react-dom的deps ["react"], 所以要先用parentUrl, 再用id
+ * @param {*} id 
+ * @param {*} parentUrl 
+ * @returns 
+ */
+export function getPkgUrl(id) {
   if (/^https?:\/\//.test(id)) {
     return id
   }
   const request = resolveRequest(id)
-  let config = getConfig(id, request)
-  if (typeof config === "string") {
-    config = {
-      url: config
-    }
+  // let config = getConfig(id, request)
+  let mapUrl = idUrlMap[id]
+  if (/^https?:\/\//.test(mapUrl)) {
+    return mapUrl
   }
-  if (/^https?:\/\//.test(config?.url)) {
-    return config.url
-  }
-  const mapRequest = config ? resolveRequest(config.url) : request
+  const mapRequest = mapUrl ? resolveRequest(mapUrl) : request
   const targetRequest = {
     name: mapRequest.name || request.name,
     version: mapRequest.version || request.version,
@@ -48,8 +76,7 @@ export function getUrl(id) {
 const existingHook = System.constructor.prototype.resolve;
 System.constructor.prototype.resolve = function (...args) {
   const [id, parentUrl] = args
-  const url = getUrl(id)
+  const url = getDepUrl(id, parentUrl) || getPkgUrl(id)
   const doUrl = url || existingHook.call(this, ...args);
-  urlIdMap[doUrl] = id
   return doUrl
 };
