@@ -1,3 +1,4 @@
 ## wpm
-web package manager是一个在线包管理平台
+web package manager
+微前端包管理平台
 
