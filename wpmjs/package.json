@@ -1,6 +1,6 @@
 {
     "name": "wpmjs",
-    "version": "2.1.4",
+    "version": "2.2.0",
     "author": "",
     "description": "使systemjs通过包名的方式加载资源",
     "keywords": [

@@ -14,7 +14,10 @@ window.System.__wpmjs__.import("@scope/name/entry?query=1&query2=2")
   |  参数   | 类型 | 默认值  | 作用  |
   |  ----  | ----  |----  | ----  |
   |  env | string  | "" | 区分环境 |
-  |  map | object  | {} | 包配置, 全局生效 |
+  |  dev | boolean  |  | 是否是dev模式, 一般用于开发热更新 |
+  |  idUrlMap | object  | {} | 包配置, 全局生效 |
+  |  idDefineMap | object  | {} | 包配置, 全局生效 |
+  |  devIdUrlMap | object  | {} | 包配置, 全局生效 |
   | resolvePath | function | | 统一管理包url |
   | resolveEntryFile | function | | 统一管理包url |
   | resolveQuery | function | | 统一管理包url |
@@ -25,26 +28,14 @@ window.System.__wpmjs__.import("@scope/name/entry?query=1&query2=2")
 import 'wpmjs';
 
 window.System.__wpmjs__.setConfig({
+    dev: false,
     env: "online",
-    map: {
-        // url可设置包名或者http链接
-        react: "https://unpkg.zhimg.com/react@17/umd/react.development.js",
-        // url为包名时会走resolvePath统一解析链接
-        "test1": "test1"
-        "react-dom": {
-          "url": "https://unpkg.zhimg.com/react-dom@17/umd/react-dom.development.js",
-          // "react-dom"默认只有一个依赖 "react", "react"组件热更新需要"react-refresh/runtime"先于"react-dom"执行, 所以为"react-dom"添加额外依赖保证顺序
-          "deps": ["react-refresh/runtime"]
-        }
-    },
-    init: {
-      resolvePath: function(request) {
+    resolvePath: function(request) {
         return "https://exam.com/" + request.name + "@" + request.version
-      },
-      resolveEntryFile(request) {
-        return "/index.js"
-      }
     },
+    resolveEntryFile(request) {
+        return "/index.js"
+    }
 })
 
 ```
