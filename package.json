@@ -26,11 +26,12 @@
   "author": "",
   "license": "ISC",
   "dependencies": {
-    "wpmjs": "^2.1.0",
-    "pre-get": "^1.0.3"
+    "pre-get": "^1.0.3",
+    "wpmjs": "^2.1.0"
   },
-  "devDependencies": {},
   "peerDependencies": {
+    "loader-utils": "^1.4.0",
+    "terser": "^4.0.0",
     "webpack": "^4.3.0"
   }
 }
