@@ -52,7 +52,7 @@ module.exports = {
         // remotes的key, 无论配置 "react@17" 还是 "react" 都会使项目中所有的 "react" 使用远程依赖
         // 例: 如果有多个项目需要使用不同版本的react, 则需要使用 "react@version" 这种方式
         "react@17": "https://assets.weimob.com/react@17/umd/react.development.js",
-        "react-dom": "https://assets.weimob.com/react-dom@17/umd/react-dom.development.js",
+        "react-dom": "https://assets.weimob.com/react-dom/umd/react-dom.development.js",
         "react-refresh/runtime": "https://assets.weimob.com/react-refresh-umd@0",
         "react-refresh": "https://assets.weimob.com/react-refresh-umd@0",
 
@@ -63,12 +63,12 @@ module.exports = {
        * dev模式时的远程包, 比如开发时热更新需要react.development版本
        */
       devRemotes: {
-        "react": "https://assets.weimob.com/react@17/umd/react.development.js",
-        "react-dom@17": "https://assets.weimob.com/react-dom@17/umd/react-dom.development.js",
+        "react@17": "https://assets.weimob.com/react@17/umd/react.development.js",
+        "react-dom": "https://assets.weimob.com/react-dom@17/umd/react-dom.development.js",
       },
       defineRemotes: {
         // 如果使用的远程包不是自己构建的, 且包有依赖, 则需要在此处配置依赖映射
-        "react-dom@17": {
+        "react-dom": {
           "deps": [
             "react-refresh/runtime",
             { name: "react", target: "react@17" }
