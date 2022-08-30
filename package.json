@@ -30,7 +30,7 @@
     "wpmjs": "^2.1.0"
   },
   "peerDependencies": {
-    "loader-utils": "^1.4.0",
+    "loader-utils": "^2.0.0",
     "terser": "^4.0.0",
     "webpack": "^4.3.0"
   }
