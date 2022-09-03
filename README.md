@@ -4,6 +4,7 @@
 特性:
 1. 支持同一个包单例和多例的用法, 同一个包同时使用多个不同版本。
 2. 支持引入其他人构建出的 "amd"、"umd"、"system" 等模块规范的包。
+3. （正在开发）与module federation互相引用（https://www.npmjs.com/package/mfalize）
 <!-- 3. （待支持）"import-http" 引入 "module federation exposes"。
 4. （待支持）"module federation remotes" 引入 "import-http"。
 5. （待支持）"import-http" 使用 "module federation shares"。
