@@ -9,7 +9,7 @@ This enables webpack4 to import remote resources in a synchronous manner, optimi
 
 2. Support the introduction of packages with "amd", "UMD", "system" and other module specifications built by others.
 
-3. (under development) cross reference with module Federation https://www.npmjs.com/package/mfalize
+3. (under development) cross reference with module Federation https://www.npmjs.com/package/usemf
 
 <!-- 3. (to be supported) "import HTTP" introduces "module Federation exports".
 
