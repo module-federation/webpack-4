@@ -27,7 +27,7 @@ const shared = {
   }
 }
 
-import mfjs from "mfalize"
+import mfjs from "usemf"
 const app2_version1 = mfjs.import({
   url: "http://localhost:3002/remoteEntry.js",
   // name: "app2",  // 如果设置了mfplugin library type为 "amd" | "system" 等模块, 则name非必填
