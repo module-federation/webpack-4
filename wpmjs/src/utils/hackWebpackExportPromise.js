@@ -8,7 +8,7 @@ System.constructor.prototype.getRegister = function (url) {
   .then(function ([deps, oriDecFun] = []) {
     // custom hook here
     return [deps, function decFun(_oriExport, _context) {
-      let _exportRes
+      let _exportRes = []
       function _export (...res) {
         _exportRes = res
         _oriExport(...res)

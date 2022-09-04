@@ -7,7 +7,8 @@
         "systemjs",
         "import http",
         "top level await",
-        "webpack"
+        "webpack",
+        "module federation"
     ],
     "repository": {
         "type": "git",

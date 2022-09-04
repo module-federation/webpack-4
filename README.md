@@ -1,5 +1,6 @@
 ## wpm（web package manager）
 基于webpack4、systemjs、import-http-webpack-plugin的微前端包管理平台
+（正在开发）兼容webpack5 module federation
 
 ## examples
 ### 微前端热更新

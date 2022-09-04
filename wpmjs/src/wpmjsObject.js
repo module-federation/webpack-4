@@ -16,7 +16,7 @@ const obj = {
     return this.idModuleMap[id]
   },
   import(id) {
-    return this.idModulePromiseMap[id] || (this.idModulePromiseMap[id] = this.resolveModule(window.System.import(id), id))
+    return preget(this.idModulePromiseMap[id] || (this.idModulePromiseMap[id] = this.resolveModule(window.System.import(id), id)))
   },
   resolvePath(request) {
     throw new Error(`请实现resolvePath函数（ new ImportHttpPlugin({
@@ -70,7 +70,8 @@ require("./utils/hackWebpackLibrary")
 require("./utils/addDeps")
 require("./utils/hackWebpackExportPromise")
 
-function setConfig(customConfig = {}) {
+function setConfig(customConfig) {
+  customConfig = customConfig || {}
   const {
     idUrlMap = {},
     idDefineMap = {},
