@@ -1,6 +1,6 @@
 ## react-refresh-umd
 
-[中文文档](doc/chinese)
+[中文文档](https://github.com/wpmjs/wpmjs/tree/main/react-refresh-umd/doc/chinese)
 
 It is generally used for micro front-end schemes such as modulefederation and [import-http-webpack-plugin](https://www.npmjs.com/package/import-http-webpack-plugin)
 
