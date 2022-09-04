@@ -1,26 +1,32 @@
 ## import-http-webpack-plugin
-使webpack4可以用同步的方式import远程资源, 优化开发体验、构建速度、发布效率。
+This enables webpack4 to import remote resources in a synchronous manner, optimizing the development experience, construction speed and publishing efficiency.
 
-特性:
-1. 支持同一个包单例和多例的用法, 同一个包同时使用多个不同版本。
-2. 支持引入其他人构建出的 "amd"、"umd"、"system" 等模块规范的包。
-3. （正在开发）与module federation互相引用https://www.npmjs.com/package/mfalize
-<!-- 3. （待支持）"import-http" 引入 "module federation exposes"。
-4. （待支持）"module federation remotes" 引入 "import-http"。
-5. （待支持）"import-http" 使用 "module federation shares"。
-6. （待支持）"module federation shares" 使用 "import-http deps"。 -->
+[中文文档](doc/chinese)
 
-在线尝试（包含开发热更新）:
+### characteristic:
 
+1. Support the use of single instance and multiple instances of the same package. The same package can use multiple different versions at the same time.
+
+2. Support the introduction of packages with "amd", "UMD", "system" and other module specifications built by others.
+
+3. (under development) cross reference with module Federation https://www.npmjs.com/package/mfalize
+
+<!-- 3. (to be supported) "import HTTP" introduces "module Federation exports".
+
+4. (to be supported) "module Federation remotes" introduces "import HTTP".
+
+5. (to be supported) "import HTTP" uses "module Federation shares".
+
+6. (to be supported) "module Federation shares" use "import http DEPs." -->
+
+Online attempt (including development hot update):
 https://stackblitz.com/github/wpmjs/wpmjs/tree/main/examples/hot-refresh?file=app2%2Fsrc%2FApp2.jsx
 
-使用方式:
+### Usage:
 ``` js
-// ！！！！重要！！！！请不要将assets.weimob.com用于生产环境, 此域名随时会设置可用域名白名单
-// ！！！！重要！！！！翻墙访问 https://cdn.jsdelivr.net/npm/react
-import React from "https://assets.weimob.com/react@17/umd/react.development.js"
-import json from "https://assets.weimob.com/vue@2.7.8/package.json"
-const vue = import("https://assets.weimob.com/vue@2.7.8/dist/vue.js")
+import React from "https://unpkg.com/react@17/umd/react.development.js"
+import json from "https://unpkg.com/vue@2.7.8/package.json"
+const vue = import("https://unpkg.com/vue@2.7.8/dist/vue.js")
 
 ;(async function () {
   console.log('json:', json)
@@ -30,7 +36,7 @@ const vue = import("https://assets.weimob.com/vue@2.7.8/dist/vue.js")
 ```
 
 
-配置方式：
+### Configuration:
 ``` js
 // webpack.config.js
 module.exports = {
@@ -38,37 +44,37 @@ module.exports = {
     new ImportHttpPlugin({
       init: {
         resolvePath(request) {
-          return "https://assets.weimob.com/" + request.name + (request.version ? "@" + request.version : "")
+          return "https://unpkg.com/" + request.name + (request.version ? "@" + request.version : "")
         },
         resolveEntryFile(request) {
           return "/dist/index.js"
         }
       },
       /**
-       * 配置本次构建使用的远程依赖
-       * remotes配置有2种类型
+       * Configure remote dependencies used in this build
+       * There are two types of remote configurations:
        */
       remotes: {
-        // 1. 使用远程的包
-        // remotes的key, 无论配置 "react@17" 还是 "react" 都会使项目中所有的 "react" 使用远程依赖
-        // 例: 如果有多个项目需要使用不同版本的react, 则需要使用 "react@version" 这种方式
-        "react@17": "https://assets.weimob.com/react@17/umd/react.development.js",
-        "react-dom": "https://assets.weimob.com/react-dom/umd/react-dom.development.js",
-        "react-refresh/runtime": "https://assets.weimob.com/react-refresh-umd@0",
-        "react-refresh": "https://assets.weimob.com/react-refresh-umd@0",
+        // 1. Use remote packages
+        // Remote key, regardless of configuration“ react@17 "Or" react "will make all" react "in the project use remote dependencies
+        // Example: if multiple projects need to use different versions of react, you need to use“ react@version "This way
+        "react@17": "https://unpkg.com/react@17/umd/react.development.js",
+        "react-dom": "https://unpkg.com/react-dom/umd/react-dom.development.js",
+        "react-refresh/runtime": "https://unpkg.com/react-refresh-umd@0",
+        "react-refresh": "https://unpkg.com/react-refresh-umd@0",
 
-        // 2. 使用统一包管理平台
+        //2. Use the unified package management platform
         "test": "test",
       },
       /**
-       * dev模式时的远程包, 比如开发时热更新需要react.development版本
+       * Remote package in dev mode, such as react.development version for hot update during development
        */
       devRemotes: {
-        "react@17": "https://assets.weimob.com/react@17/umd/react.development.js",
-        "react-dom": "https://assets.weimob.com/react-dom@17/umd/react-dom.development.js",
+        "react@17": "https://unpkg.com/react@17/umd/react.development.js",
+        "react-dom": "https://unpkg.com/react-dom@17/umd/react-dom.development.js",
       },
       defineRemotes: {
-        // 如果使用的远程包不是自己构建的, 且包有依赖, 则需要在此处配置依赖映射
+        // If the remote package used is not self built and the package has dependencies, you need to configure dependency mapping here
         "react-dom": {
           "deps": [
             "react-refresh/runtime",
@@ -77,33 +83,34 @@ module.exports = {
         }
       },
       injects: [
-        "https://assets.weimob.com/wpmjs@2/dist/index.js",
+        "https://unpkg.com/wpmjs@2/dist/index.js",
       ],
     })
   ]
 }
 ```
 
-## 如果对一个包需要产生多例, 也就是同时出现不同版本, 则需要看下方例子, 如果需要单例, 则无需关注
+## If you need to generate multiple instances of a package, that is, different versions appear at the same time, you need to see the following example. If you need a single instance, you don't need to pay attention to it
 
-remotes单例和多例配置, 是通过key处的标识确定的, 如下方3个webpack.config.js, 按引入顺序为【A】、【B】、【C】：
+Remote single instance and multi instance configurations are determined by the identifier at the key, as shown in the following three webpack.config JS, which are 【a】, 【b】 and 【C】 in the order of introduction:
 
-* 【A】和【B】项目的 "react" 都会使用第一次注册的 "react@17" 所对应的 "https://assets.weimob.com/react@17/umd/react.development.js" 这个版本, 两个项目中的 "react" 引用是单例
-* 【B】项目独立使用或先于【A】项目引入的话, "react@17" 会使用 "https://assets.weimob.com/react/umd/react.development.js" 这个版本
-* 【A】和【C】项目的 "react" 会使用 "xx.com/react@17/umd/xx.js"、"xx.com/react@18/umd/xx.js" 这两个版本, 两个项目中的 "react" 引用是多例
+*【A】 The "react" of 【a】 and 【b】 projects will use the first registered“ react@17 "Corresponding" https://assets.weimob.com/react @17/umd/react.development. JS "in this version, the" react "reference in the two projects is a singleton
+*【B】 If the project is used independently or introduced before the project 【a】“ react@17 "Can use" https://assets.weimob.com/react/umd/react.development.js "This version
+*【A】 And "react" of 【c】 project will use "XX. Com"/ react@17 /umd/xx.js"、"xx.com/ react@18 /umd/xx. JS "there are many" react "references in these two versions and two projects
+
 ``` js
 // webpack.config.A.js
 remotes: {
-    "react@17": "https://assets.weimob.com/react@17/umd/react.development.js"
+    "react@17": "https://unpkg.com/react@17/umd/react.development.js"
 }
 
 // webpack.config.B.js
 remotes: {
-    "react@17": "https://assets.weimob.com/react/umd/react.development.js"
+    "react@17": "https://unpkg.com/react/umd/react.development.js"
 }
 
 // webpack.config.C.js
 remotes: {
-    "react": "http://https://assets.weimob.com/react@18/umd/react.development.js"
+    "react": "http://https://unpkg.com/react@18/umd/react.development.js"
 }
 ```

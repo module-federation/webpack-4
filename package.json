@@ -17,6 +17,7 @@
   "homepage": "",
   "main": "lib/plugin.js",
   "files": [
+    "doc",
     "lib"
   ],
   "scripts": {
