@@ -1,6 +1,6 @@
 ## wpmjs
 
-[中文文档](doc/chinese)
+[中文文档](https://github.com/wpmjs/wpmjs/tree/main/wpmjs/doc/chinese)
 
 The encapsulation of systemjs and the introduction of resources in the form of pkgname provide some convenient APIs, which are generally used to build tools [import-http-webpack-plugin](https://www.npmjs.com/package/import-http-webpack-plugin)
 
