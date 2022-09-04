@@ -1,11 +1,18 @@
 ## react-refresh-umd
-一般用于ModuleFederation、[import-http-webpack-plugin](https://www.npmjs.com/package/import-http-webpack-plugin)等微前端方案
 
-react热更新必要条件:
-1. react-refresh、react-dom、react单例
-2. react-dom、react使用development版本
-3. react-refresh代码在react-dom之前运行
-4. 安装react热更新插件（@pmmmwh/react-refresh-webpack-plugin）
+[中文文档](doc/chinese)
+
+It is generally used for micro front-end schemes such as modulefederation and [import-http-webpack-plugin](https://www.npmjs.com/package/import-http-webpack-plugin)
+
+Necessary conditions for react hot update:
+
+1. React refresh, react DOM, react single case
+
+2. React Dom and react use the development version
+
+3. The react refresh code runs before react dom
+
+4. Install react hot update plug-in (@ pmmmwh / react refresh webpack plugin)
 
 
 DEMO:

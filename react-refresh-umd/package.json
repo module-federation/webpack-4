@@ -17,6 +17,7 @@
     },
     "homepage": "https://github.com/wpmjs/wpmjs/tree/main/react-refresh-external",
     "files": [
+        "doc",
         "dist",
         "src"
     ],
