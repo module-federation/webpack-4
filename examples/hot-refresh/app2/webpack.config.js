@@ -32,7 +32,7 @@ module.exports = {
     new ImportHttpPlugin({
       init: {
         resolvePath(request) {
-          return "https://assets.weimob.com/" + request.name + (request.version ? "@" + request.version : "")
+          return "https://unpkg.com/" + request.name + (request.version ? "@" + request.version : "")
         },
         resolveEntryFile() {
           return "/dist/index.js"
@@ -40,18 +40,18 @@ module.exports = {
       },
       remotes: {
         // 1. 编译时使用远程的包
-        "react@17": "https://assets.weimob.com/react@17/umd/react.development.js",
-        "react-dom@17": "https://assets.weimob.com/react-dom@17/umd/react-dom.development.js",
-        "react-refresh/runtime": "https://assets.weimob.com/react-refresh-umd@0",
-        "react-refresh": "https://assets.weimob.com/react-refresh-umd@0",
-        "vue@2": "https://assets.weimob.com/vue@2.6.14/dist/vue.js",
+        "react@17": "https://unpkg.com/react@17/umd/react.development.js",
+        "react-dom@17": "https://unpkg.com/react-dom@17/umd/react-dom.development.js",
+        "react-refresh/runtime": "https://unpkg.com/react-refresh-umd@0",
+        "react-refresh": "https://unpkg.com/react-refresh-umd@0",
+        "vue@2": "https://unpkg.com/vue@2.6.14/dist/vue.js",
 
         // 2. 编译时使用统一包管理平台
         "test@3": "test",
       },
       devRemotes: {
-        "react@17": "https://assets.weimob.com/react@17/umd/react.development.js",
-        "react-dom@17": "https://assets.weimob.com/react-dom@17/umd/react-dom.development.js",
+        "react@17": "https://unpkg.com/react@17/umd/react.development.js",
+        "react-dom@17": "https://unpkg.com/react-dom@17/umd/react-dom.development.js",
       },
       defineRemotes: {
         // 如果使用的远程包不是自己构建的, 且包有依赖, 则需要在此处配置依赖映射
@@ -63,7 +63,7 @@ module.exports = {
         }
       },
       injects: [
-        "https://assets.weimob.com/wpmjs@2/dist/index.js",
+        "https://unpkg.com/wpmjs@2/dist/index.js",
       ],
     }),
     new HtmlWebpackPlugin()

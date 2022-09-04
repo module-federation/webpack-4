@@ -32,7 +32,7 @@ module.exports = {
     new ImportHttpPlugin({
       init: {
         resolvePath(request) {
-          return "https://assets.weimob.com/" + request.name + (request.version ? "@" + request.version : "")
+          return "https://unpkg.com/" + request.name + (request.version ? "@" + request.version : "")
         },
         resolveEntryFile(request) {
           return "/dist/index.js"
@@ -44,10 +44,10 @@ module.exports = {
        */
       remotes: {
         // 1. 使用远程的包 
-        "react@17": "https://assets.weimob.com/react@17/umd/react.development.js",
-        "react-dom@17": "https://assets.weimob.com/react-dom@17/umd/react-dom.development.js",
-        "react-refresh/runtime": "https://assets.weimob.com/react-refresh-umd@0",
-        "react-refresh": "https://assets.weimob.com/react-refresh-umd@0",
+        "react@17": "https://unpkg.com/react@17/umd/react.development.js",
+        "react-dom@17": "https://unpkg.com/react-dom@17/umd/react-dom.development.js",
+        "react-refresh/runtime": "https://unpkg.com/react-refresh-umd@0",
+        "react-refresh": "https://unpkg.com/react-refresh-umd@0",
 
         // 2. 使用统一包管理平台
         "test@3": "test",
@@ -56,8 +56,8 @@ module.exports = {
        * dev模式时的远程包, 比如开发时热更新需要react.development版本
        */
       devRemotes: {
-        "react@17": "https://assets.weimob.com/react@17/umd/react.development.js",
-        "react-dom@17": "https://assets.weimob.com/react-dom@17/umd/react-dom.development.js",
+        "react@17": "https://unpkg.com/react@17/umd/react.development.js",
+        "react-dom@17": "https://unpkg.com/react-dom@17/umd/react-dom.development.js",
       },
       defineRemotes: {
         // 如果使用的远程包不是自己构建的, 且包有依赖, 则需要在此处配置依赖映射
@@ -69,7 +69,7 @@ module.exports = {
         }
       },
       injects: [
-        "https://assets.weimob.com/wpmjs@2/dist/index.js",
+        "https://unpkg.com/wpmjs@2/dist/index.js",
       ],
     }),
     new HtmlWebpackPlugin()
