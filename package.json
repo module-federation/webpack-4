@@ -33,6 +33,7 @@
   "peerDependencies": {
     "loader-utils": "^1.4.0",
     "terser": "^4.0.0",
-    "webpack": "^4.3.0"
+    "webpack": "^4.3.0",
+    "webpack-sources": "^1.4.3"
   }
 }
