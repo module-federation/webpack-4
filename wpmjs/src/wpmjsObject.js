@@ -55,11 +55,17 @@ const obj = {
 ;["resolveEntryFile", "resolvePath", "resolveQuery"].forEach(name => {
   obj[name].__wpm__defaultProp = true
 })
-// window.wpmjs = Object.assign(function (id) {
-//   return obj.import(id)
-// }, obj)
-// window.wpmjs.init = obj.setConfig
-// window.wpmjs.sync = obj.get
+/**
+ * 放全局变量
+ */
+window.wpmjs = Object.assign(function (id) {
+  return obj.import(id)
+}, obj)
+/**
+ * 兼容公司内旧版本用法
+ */
+window.wpmjs.init = obj.setConfig
+window.wpmjs.sync = obj.get
 
 if (!window.System.__wpmjs__) {
   window.System.__wpmjs__ = obj

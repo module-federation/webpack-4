@@ -3,7 +3,11 @@
 
 const existingHook = System.constructor.prototype.register;
 System.constructor.prototype.register = function (...args) {
-  return existingHook.apply(this, args.length === 3 ? args.slice(1) : args)
+  args = args.length === 3 ? args.slice(1) : args
+  if (args[0] instanceof Array) {
+    args[0] = args[0].filter(item => !!item)
+  }
+  return existingHook.apply(this, args)
 };
 
 
