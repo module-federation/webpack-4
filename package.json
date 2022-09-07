@@ -28,7 +28,7 @@
   "license": "ISC",
   "dependencies": {
     "pre-get": "^1.0.5",
-    "wpmjs": "^2.1.0"
+    "wpmjs": "^2.2.5"
   },
   "peerDependencies": {
     "loader-utils": "^1.4.0",
