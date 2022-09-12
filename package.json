@@ -1,6 +1,6 @@
 {
   "name": "mf-webpack4",
-  "version": "0.1.3",
+  "version": "0.1.4",
   "description": "webpack4 module federation",
   "repository": {
     "type": "git",
