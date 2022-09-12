@@ -50,6 +50,7 @@ const obj = {
   /**
    * dep发起的请求, 不会进此api
    * id: @scope....
+   * id: https?://xxx.com/xxxxx
    * id: mf:share:scope:react
    * @param {*} id 
    * @returns 
@@ -57,10 +58,12 @@ const obj = {
   import(id) {
     if (this.idModulePromiseMap[id]) return this.idModulePromiseMap[id]
     if (/^https?:\/\//.test(id)) return window.System.import(id)
-    const request = resolveRequest(id)
     const importPromise = preget(Promise.resolve(
-
        (async () => {
+        if (id.startsWith("mfshare:")) {
+          return this._importShare(id)
+        }
+        const request = resolveRequest(id)
         if (this.idDefineMap[request.name]?.remoteType === "mf") {
           // mf模块
           const config = this.idDefineMap[request.name]
@@ -77,6 +80,11 @@ const obj = {
       this.idModuleMap[id] = res
       return res
     })
+  },
+  async _importShare(id) {
+    const [prefix, scope, pkg, version] = id.split(":")
+    const fn = await usemf.getShareScopes()[scope][pkg][version].get()
+    return fn()
   },
   resolvePath(request) {
     throw new Error(`请实现resolvePath函数（ new ImportHttpPlugin({
