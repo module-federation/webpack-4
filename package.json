@@ -1,18 +1,15 @@
 {
-  "name": "import-http-webpack-plugin",
-  "version": "3.1.17",
-  "description": "",
+  "name": "mf-webpack4",
+  "version": "0.1.0",
+  "description": "webpack4 module federation",
   "repository": {
     "type": "git",
-    "url": "https://github.com/zhangHongEn/import-http-webpack-plugin/tree/main"
+    "url": "https://github.com/zhangHongEn/module-federation-webpack-plugin/tree/main"
   },
   "keywords": [
     "webpack",
-    "systemjs",
-    "import http",
-    "chunk",
-    "tol level await",
-    "module federation"
+    "module federation",
+    "module-federation"
   ],
   "homepage": "",
   "main": "lib/plugin.js",
@@ -27,13 +24,14 @@
   "author": "",
   "license": "ISC",
   "dependencies": {
+    "webpack-virtual-modules": "^0.4.4",
+    "pkg-dir": "5",
     "pre-get": "^1.0.5",
-    "wpmjs": "^2.2.5"
+    "wpmjs": "^2.3.0",
+    "semver": "^7.3.7"
   },
   "peerDependencies": {
     "loader-utils": "^1.4.0",
-    "terser": "^4.0.0",
-    "webpack": "^4.3.0",
     "webpack-sources": "^1.4.3"
   }
 }
