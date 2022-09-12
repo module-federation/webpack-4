@@ -4,7 +4,7 @@
   "description": "webpack4 module federation",
   "repository": {
     "type": "git",
-    "url": "https://github.com/zhangHongEn/module-federation-webpack-plugin/tree/main"
+    "url": "https://github.com/zhangHongEn/mf-webpack4"
   },
   "keywords": [
     "webpack",
