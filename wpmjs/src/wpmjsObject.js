@@ -1,13 +1,34 @@
 import preget from 'pre-get';
+import usemf from '/Users/zhanghongen/Desktop/open-code/usemf/dist/index.js'
 import resolveRequest from './utils/resolveRequest';
 
 const obj = {
   env: null,
   dev: null,
-
   idUrlMap: {
   },
-  idDefineMap: {},
+  idDefineMap: {
+    // id: {
+    //   // "" 表示umd或system
+    //   remoteType: "" | "mf",
+    //   name,
+      // shared: {
+      //   shareScope,
+      //   react: {
+      //     version,
+      //     loaded,
+      //     get,
+      //   },
+      // }
+    //   deps: [
+    //     "",
+    //     {
+    //       name,
+    //       target
+    //     }
+    //   ],
+    // }
+  },
   devIdUrlMap: {},
   urlIdMap: {},
   idModuleMap: {},
@@ -15,8 +36,47 @@ const obj = {
   get (id) {
     return this.idModuleMap[id]
   },
+  wait (pkgs) {
+    if (!(pkgs instanceof Array)) {
+      throw new Error("wait(pkgs)入参需要是数组")
+    }
+    if (pkgs.length === 0) {
+      return Promise.resolve()
+    }
+    return Promise.all(pkgs.map(function (pkg){
+      return window.wpmjs.import(pkg)
+    }))
+  },
+  /**
+   * dep发起的请求, 不会进此api
+   * id: @scope....
+   * id: mf:share:scope:react
+   * @param {*} id 
+   * @returns 
+   */
   import(id) {
-    return preget(this.idModulePromiseMap[id] || (this.idModulePromiseMap[id] = this.resolveModule(window.System.import(id), id)))
+    if (this.idModulePromiseMap[id]) return this.idModulePromiseMap[id]
+    if (/^https?:\/\//.test(id)) return window.System.import(id)
+    const request = resolveRequest(id)
+    const importPromise = preget(Promise.resolve(
+
+       (async () => {
+        if (this.idDefineMap[request.name]?.remoteType === "mf") {
+          // mf模块
+          const config = this.idDefineMap[request.name]
+          return this._resolveMfEntry(usemf.import({
+            url: this.idUrlMap[request.name],
+            name: config.name,
+          }), request)
+        }
+        // amd umd system等模块规范, 使用systemjs.import
+        this._resolveWpmEntry(window.System.import(id), request)
+      })()
+    ))
+    return this.idModulePromiseMap[id] = importPromise.then(res => {
+      this.idModuleMap[id] = res
+      return res
+    })
   },
   resolvePath(request) {
     throw new Error(`请实现resolvePath函数（ new ImportHttpPlugin({
@@ -34,11 +94,17 @@ const obj = {
   resolveQuery(request) {
     return request.query ? `?${request.query}` : ""
   },
-  resolveModule(modulePromise, id) {
+  /**
+   * 如有入口, 解析入口
+   * 例: import "app/a" 入口则为 "a"
+   * @param {*} modulePromise 
+   * @param {*} id 
+   * @returns 
+   */
+  _resolveWpmEntry(modulePromise, request) {
+    const {entry} = request
     return modulePromise.then(res => {
-      if (/^https?:\/\//.test(id)) return res
       if (typeof res === "object" || typeof res === "function") {
-        const {entry} = resolveRequest(id)
         if (entry && res[entry]?.__wpm__entry) {
           return res[entry]()
         }
@@ -50,25 +116,36 @@ const obj = {
       return res
     })
   },
+  /**
+   * 解析mf入口
+   * @param {*} modulePromise 
+   * @param {*} id 
+   * @returns 
+   */
+  async _resolveMfEntry(loadModule, request) {
+    const {entry} = request
+    if (entry) {
+      return loadModule("./" + entry)
+    }
+    return loadModule
+  },
   setConfig,
 }
 ;["resolveEntryFile", "resolvePath", "resolveQuery"].forEach(name => {
   obj[name].__wpm__defaultProp = true
 })
-/**
- * 放全局变量
- */
-window.wpmjs = Object.assign(function (id) {
-  return obj.import(id)
-}, obj)
-/**
- * 兼容公司内旧版本用法
- */
-window.wpmjs.init = obj.setConfig
-window.wpmjs.sync = obj.get
 
 if (!window.System.__wpmjs__) {
   window.System.__wpmjs__ = obj
+   /**
+   * 放全局变量
+   */
+  window.wpmjs = obj
+  /**
+   * 兼容公司内旧版本用法
+   */
+  window.wpmjs.init = obj.setConfig
+  window.wpmjs.sync = obj.get
 }
 
 require("./utils/mapResolve")
