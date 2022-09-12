@@ -1,7 +1,12 @@
 ## mf-webpack4
 Module Federation of webpack4
 
+
+[中文文档](doc/chinese)
+
+
 ### Try online:
+https://stackblitz.com/github/wpmjs/wpmjs/tree/main/examples/mf-webpack4
 
 ### Examples:
 ``` js
