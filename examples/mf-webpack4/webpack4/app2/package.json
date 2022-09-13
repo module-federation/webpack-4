@@ -15,7 +15,7 @@
     "@pmmmwh/react-refresh-webpack-plugin": "^0.5.7",
     "babel-loader": "^8.2.3",
     "html-webpack-plugin": "4",
-    "mf-webpack4": "^1.0.0",
+    "mf-webpack4": "^1.0.3",
     "react-refresh": "^0.14.0",
     "resolve-cwd": "^3.0.0",
     "webpack": "4.46.0",
@@ -24,6 +24,6 @@
   },
   "dependencies": {
     "react": "^18.2.0",
-    "react-dom": "16"
+    "react-dom": "18"
   }
 }

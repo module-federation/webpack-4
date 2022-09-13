@@ -1,6 +1,4 @@
 import React from 'react';
-import usemf from "usemf"
-console.log(1111, usemf.getShareScopes())
 
 export default function App2(props) {
   return (

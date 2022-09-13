@@ -30,6 +30,7 @@ module.exports = {
     new MF({
       remotes: {
         "app2": "app2@http://localhost:9002/remoteEntry.js",
+        "app3": "app3@http://localhost:9003/remoteEntry.js"
       },
       name: "app1",
       filename: "remoteEntry.js",
