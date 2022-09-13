@@ -10,10 +10,10 @@ module.exports = {
       'Access-Control-Allow-Origin': '*',
     },
     static: path.join(__dirname, 'dist'),
-    port: 3003,
+    port: 9003,
   },
   output: {
-    publicPath: 'http://localhost:3003/',
+    publicPath: 'http://localhost:9003/',
   },
   module: {
     rules: [
@@ -30,11 +30,11 @@ module.exports = {
   plugins: [
     // To learn more about the usage of this plugin, please visit https://webpack.js.org/plugins/module-federation-plugin/
     new ModuleFederationPlugin({
-      name: 'app2',
+      name: 'app3',
       filename: 'remoteEntry.js',
-      library: {
-        type: "system"
-      },
+      // library: {
+      //   type: "system"
+      // },
       exposes: {
         './App': './src/App',
       },

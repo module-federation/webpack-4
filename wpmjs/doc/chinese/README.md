@@ -2,6 +2,8 @@
 对systemjs的封装, 以pkgname的方式引资源 提供了些比较便利的API, 一般用于构建工具[import-http-webpack-plugin](https://www.npmjs.com/package/import-http-webpack-plugin)
 ``` js
 window.System.__wpmjs__.import("@scope/name/entry?query=1&query2=2")
+window.wpmjs.import("http://a.com")
+window.wpmjs.import("mfshare:scope:version:react")
 ```
 
 ### 使用示例：
@@ -25,6 +27,9 @@ window.System.__wpmjs__.setConfig({
 
     // 使用统一包管理平台
     "test": "test",
+
+    // module federation 需配置 idDefineMap
+    "mfpkg": "http://localhost:3000/remoteEntry.js"
   },
   /**
     * dev模式时的远程包, 比如开发时热更新需要react.development版本
@@ -43,6 +48,10 @@ window.System.__wpmjs__.setConfig({
         // 使用 "react@17" 作为 "react-dom" 依赖的 "react"
         { name: "react", target: "react@17" }
       ]
+    },
+    "mfpkg": {
+      remoteType: "mf",
+      name: "app1"
     }
   },
 })
@@ -92,8 +101,9 @@ window.System.__wpmjs__.setConfig({
 ## import
 + ### 参数
 import(str)
-  * import "react"
-  * import "antd@latest/button?a=2"
+  * window.wpmjs.import("antd@latest/button?a=2")
+  * window.wpmjs.import("http://a.com")
+  * window.wpmjs.import("mfshare:scope:version:react")
 
 | 配置项          | 必填  | 类型     | 默认值   | 作用               |
 |----------------|------|---------|---------|------------------|

@@ -2,15 +2,17 @@
 
 [中文文档](https://github.com/wpmjs/wpmjs/tree/main/wpmjs/doc/chinese)
 
-The encapsulation of systemjs and the introduction of resources in the form of pkgname provide some convenient APIs, which are generally used to build tools [import-http-webpack-plugin](https://www.npmjs.com/package/import-http-webpack-plugin)
+The encapsulation of systemjs、usemf and the introduction of resources in the form of pkgname provide some convenient APIs, which are generally used to build tools [mf-webpack4](https://www.npmjs.com/package/mf-webpack4)
 
 ``` js
-window.System.__wpmjs__.import("@scope/name/entry?query=1&query2=2")
+window.wpmjs.import("@scope/name/entry?query=1&query2=2")
+window.wpmjs.import("http://a.com")
+window.wpmjs.import("mfshare:scope:version:react")
 ```
 
 ### Usage example:
 ``` js
-window.System.__wpmjs__.setConfig({
+window.wpmjs.setConfig({
   dev: false,
   env: "online",
   // URL specification of unified package management platform
@@ -29,6 +31,9 @@ window.System.__wpmjs__.setConfig({
 
     // Use unified package management platform
     "test": "test",
+
+    // module federation need idDefineMap
+    "mfpkg": "http://localhost:3000/remoteEntry.js"
   },
   /**
     * Remote package in dev mode, such as react.development version for hot update during development
@@ -47,12 +52,16 @@ window.System.__wpmjs__.setConfig({
         // Use“ react@17 "React" as "react DOM" dependency“
         { name: "react", target: "react@17" }
       ]
+    },
+    "mfpkg": {
+      remoteType: "mf",
+      name: "app1"
     }
   },
 })
 
-window.System.__wpmjs__.import("react-dom")
-window.System.__wpmjs__.import("react@17")
+window.wpmjs.import("react-dom")
+window.wpmjs.import("react@17")
 ```
 
 <!--|  dev | boolean  | false | 是否是开发模式 | 目前一般由插件自动开启, 用于开发模式热更新 |-->
@@ -77,7 +86,7 @@ window.System.__wpmjs__.import("react@17")
 + ### Examples
 ```js
 import 'wpmjs';
-window.System.__wpmjs__.setConfig({
+window.wpmjs.setConfig({
     dev: false,
     env: "online",
     idUrlMap: {},
@@ -96,8 +105,10 @@ window.System.__wpmjs__.setConfig({
 ## import
 + ### params
 import(str)
-  * import "react"
-  * import "antd@latest/button?a=2"
+  * window.wpmjs.import("react")
+  * window.wpmjs.import("antd@latest/button?a=2")
+  * window.wpmjs.import("http://a.com")
+  * window.wpmjs.import("mfshare:scope:version:react")
 
 | param          | required  | type     | default   | desc               |
 |----------------|------|---------|---------|------------------|
@@ -117,7 +128,7 @@ import(str)
 + ### Examples
 ``` jsx
 import 'wpmjs';
-const { default: React, useState } = window.System.__wpmjs__.import('react@latest');
+const { default: React, useState } = window.wpmjs.import('react@latest');
 useState // Proxy<Promise>
 await useState // function
 
@@ -136,8 +147,8 @@ await React.a.b.c.s.d.f.g // undefined
 ``` jsx
 import 'wpmjs';
 ;(async function () {
-  await window.System.__wpmjs__.import('react@latest');
-  const { default: React, useState } = window.System.__wpmjs__.get('react@latest')
+  await window.wpmjs.import('react@latest');
+  const { default: React, useState } = window.wpmjs.get('react@latest')
   useState // function
 })()
 ```

@@ -1,5 +1,9 @@
 import React from "react";
 import ReactDom from "react-dom";
+// import d from "klein/App"
+// console.log("d", d)
+// import("./oth")
+console.log(222, __webpack_share_scopes__)
 console.log('react', React, 'dom', ReactDom)
 
 const App = () => {

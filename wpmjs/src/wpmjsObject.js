@@ -51,7 +51,7 @@ const obj = {
    * dep发起的请求, 不会进此api
    * id: @scope....
    * id: https?://xxx.com/xxxxx
-   * id: mf:share:scope:react
+   * id: mfshare:scope:version:react
    * @param {*} id 
    * @returns 
    */
