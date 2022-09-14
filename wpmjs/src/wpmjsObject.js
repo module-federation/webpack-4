@@ -57,9 +57,9 @@ const obj = {
    */
   import(id) {
     if (this.idModulePromiseMap[id]) return this.idModulePromiseMap[id]
-    if (/^https?:\/\//.test(id)) return window.System.import(id)
     const importPromise = preget(Promise.resolve(
        (async () => {
+        if (/^https?:\/\//.test(id)) return window.System.import(id)
         if (id.startsWith("mfshare:")) {
           return this._importShare(id)
         }
