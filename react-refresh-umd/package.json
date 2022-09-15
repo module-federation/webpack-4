@@ -1,6 +1,6 @@
 {
     "name": "react-refresh-umd",
-    "version": "0.14.3",
+    "version": "0.14.4",
     "author": "",
     "description": "可以配合外部化的react、react-dom做热更新",
     "keywords": [
