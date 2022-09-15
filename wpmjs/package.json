@@ -1,6 +1,6 @@
 {
     "name": "wpmjs",
-    "version": "2.3.6",
+    "version": "2.3.7",
     "author": "",
     "description": "Make systemjs load resources by package name",
     "keywords": [
