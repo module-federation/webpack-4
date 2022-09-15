@@ -1,5 +1,17 @@
 ## wpmjs
-对systemjs的封装, 以pkgname的方式引资源 提供了些比较便利的API, 一般用于构建工具[import-http-webpack-plugin](https://www.npmjs.com/package/import-http-webpack-plugin)
+“Wpm（web包管理器）”集成了“umd、系统、模块联合”和其他规范的包，甚至可以引用“共享”来实现“umd deps”和“mf共享”之间的连接，并提供了可以统一管理url规范的挂钩
+
+## 特性
+* 融合依赖（umd、system、mf）
+* 构建环境外（WPMJSDK）
+* 支持webpack4+webpack5
+
+## 里程碑（顺序实施）
+* [mf-webpack4](https://www.npmjs.com/package/mf-webpack4)<input type="checkbox" checked />
+* [import-http-webpack-plugin](https://www.npmjs.com/package/import-http-webpack-plugin)此插件将集成到“mf-webpack4”中，请不要单独使用 <input type="checkbox" />
+* module-federation webpack5支持umd <input type="checkbox" />
+* 方便的开发模式+热更新 <input type="checkbox" />
+
 ``` js
 window.System.__wpmjs__.import("@scope/name/entry?query=1&query2=2")
 window.wpmjs.import("http://a.com")

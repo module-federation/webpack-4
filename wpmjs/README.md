@@ -2,7 +2,20 @@
 
 [中文文档](https://github.com/wpmjs/wpmjs/tree/main/wpmjs/doc/chinese)
 
-The encapsulation of systemjs、usemf and the introduction of resources in the form of pkgname provide some convenient APIs, which are generally used to build tools [mf-webpack4](https://www.npmjs.com/package/mf-webpack4)
+"Wpm (web package manager)" integrates the packages of "umd, system, module federation" and other specifications, and can even reference a "share" to achieve the connection between "umd deps" and "mf share", and provides hooks that can uniformly manage url specifications
+
+## characteristic
+* fusion dependency（umd、system、mf）
+* Out of the build environment（wpmjs sdk）
+* Support webpack4 + webpack5
+
+## milepost（Sequential implementation）
+* [mf-webpack4](https://www.npmjs.com/package/mf-webpack4)  <input type="checkbox" checked />
+* [import-http-webpack-plugin](https://www.npmjs.com/package/import-http-webpack-plugin) This plug-in will be integrated into "mf-webpack4", please do not use it alone <input type="checkbox" />
+* module-federation webpack5 Support umd <input type="checkbox" />
+* Convenient development mode+hot update <input type="checkbox" />
+
+## 
 
 ``` js
 window.wpmjs.import("@scope/name/entry?query=1&query2=2")
