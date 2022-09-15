@@ -2,8 +2,6 @@
 
 [中文文档](https://github.com/wpmjs/wpmjs/tree/main/react-refresh-umd/doc/chinese)
 
-It is generally used for micro front-end schemes such as modulefederation and [import-http-webpack-plugin](https://www.npmjs.com/package/import-http-webpack-plugin)
-
 Necessary conditions for react hot update:
 
 1. React refresh, react DOM, react single case
