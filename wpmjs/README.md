@@ -2,7 +2,7 @@
 
 [中文文档](https://github.com/wpmjs/wpmjs/tree/main/wpmjs/doc/chinese)
 
-"Wpm (web package manager)" integrates the packages of "umd, system, module federation" and other specifications, and can even reference a "share" to achieve the connection between "umd deps" and "mf share", and provides hooks that can uniformly manage url specifications
+"Wpm (Micro front-end package manager)" integrates the packages of "umd, system, module federation" and other specifications, and can even reference a "share" to achieve the connection between "umd deps" and "mf share", and provides hooks that can uniformly manage url specifications
 
 ## characteristic
 * fusion dependency（umd、system、mf）

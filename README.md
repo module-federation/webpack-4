@@ -1,6 +1,10 @@
-## wpm（web package manager）
-基于webpack4、systemjs、import-http-webpack-plugin的微前端包管理平台
-（正在开发）兼容webpack5 module federation
+## wpm
+"Wpm (Micro front-end package manager)" integrates the packages of "umd, system, module federation" and other specifications, and can even reference a "share" to achieve the connection between "umd deps" and "mf share", and provides hooks that can uniformly manage url specifications
+
+## characteristic
+* fusion dependency（umd、system、mf）
+* Out of the build environment（wpmjs sdk）
+* Support webpack4 + webpack5
 
 ## examples
 ### 微前端热更新

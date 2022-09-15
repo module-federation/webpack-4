@@ -3,7 +3,7 @@
 
 ## 特性
 * 融合依赖（umd、system、mf）
-* 构建环境外（WPMJSDK）
+* 无构建环境（wpmjs sdk）
 * 支持webpack4+webpack5
 
 ## 里程碑（顺序实施）
