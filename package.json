@@ -1,10 +1,10 @@
 {
   "name": "mf-webpack4",
-  "version": "1.0.3",
+  "version": "1.0.4",
   "description": "webpack4 module federation",
   "repository": {
     "type": "git",
-    "url": "https://github.com/zhangHongEn/mf-webpack4"
+    "url": "https://github.com/wpmjs/mf-webpack4"
   },
   "keywords": [
     "webpack",
