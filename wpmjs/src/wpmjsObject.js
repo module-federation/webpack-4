@@ -73,7 +73,7 @@ const obj = {
           }), request)
         }
         // amd umd system等模块规范, 使用systemjs.import
-        this._resolveWpmEntry(window.System.import(id), request)
+        return this._resolveWpmEntry(window.System.import(id), request)
       })()
     ))
     return this.idModulePromiseMap[id] = importPromise.then(res => {
