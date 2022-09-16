@@ -119,10 +119,6 @@ const obj = {
       }
       return res
     })
-    .then(res => {
-      this.idModuleMap[id] = res
-      return res
-    })
   },
   /**
    * 解析mf入口
