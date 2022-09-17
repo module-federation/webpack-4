@@ -12,3 +12,6 @@ https://stackblitz.com/github/wpmjs/wpmjs/tree/main/examples/hot-refresh?file=ap
 
 ### umd import module federation
 https://stackblitz.com/github/wpmjs/wpmjs/tree/main/examples/hot-refresh?file=app2%2Fsrc%2FApp2.jsx
+
+### module federation webpack4+webpack5
+https://stackblitz.com/github/wpmjs/wpmjs/tree/main/examples/mf-webpack4
