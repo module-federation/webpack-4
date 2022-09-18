@@ -48,7 +48,17 @@ https://webpack.js.org/plugins/module-federation-plugin/
 ### remotes
 ```
 remotes: {
-    "app2": "app2@http://localhost:9002/remoteEntry.js"
+    "app2": "app2@http://localhost:9002/remoteEntry.js",
+    "promiseRemote": `promise {
+      init() {},
+      get() {
+        return function () {
+          return {
+            promiseRemote: "aaaa"
+          }
+        }
+      }
+    }`
 }
 ```
 
