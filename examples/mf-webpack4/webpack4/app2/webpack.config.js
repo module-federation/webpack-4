@@ -7,6 +7,9 @@ const path = require("path")
 module.exports = {
   entry: "./src/index.js",
   context: __dirname,
+  resolve: {
+    extensions: [".js", ".json", ".jsx", ".css"],
+  },
   output: {
     filename: '[name].js',
     chunkFilename: "[name].js",

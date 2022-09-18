@@ -7,6 +7,9 @@ const MF = require("mf-webpack4")
 module.exports = {
   entry: "./src/index.js",
   context: __dirname,
+  resolve: {
+    extensions: [".js", ".json", ".jsx", ".css"],
+  },
   output: {
     filename: '[name].js',
     chunkFilename: "[name].js",
@@ -30,20 +33,21 @@ module.exports = {
     new MF({
       remotes: {
         "app2": "app2@http://localhost:9002/remoteEntry.js",
-        "app3": "app3@http://localhost:9003/remoteEntry.js"
+        "app3": "app3@http://localhost:9003/remoteEntry.js",
+        "promiseRemote": `promise {
+          init() {},
+          get() {
+            return function () {
+              return {
+                promiseRemote: "aaaa"
+              }
+            }
+          }
+        }`,
       },
       name: "app1",
       filename: "remoteEntry.js",
-      shared: {
-        "react": {
-          singleton: true,
-          requiredVersion: "16",
-          strictVersion: true
-        },
-        "react-dom": {
-          singleton: false,
-        }
-      },
+      shared: ["react", "react-dom"],
       exposes: {
         "./App": "./src/App1"
       }

@@ -1,4 +1,4 @@
-import App1 from "./App1.js"
+import App1 from "./App1.jsx"
 import React from "react"
 import reactDom from "react-dom"
 
