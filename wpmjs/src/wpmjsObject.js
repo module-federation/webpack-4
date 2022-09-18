@@ -48,6 +48,19 @@ const obj = {
       return window.wpmjs.import(pkg)
     }))
   },
+  getMFContainer(id) {
+    const request = resolveRequest(id)
+    const remoteType = this.idDefineMap[request.name]?.remoteType
+    if (remoteType === "mf" || remoteType === "promise") {
+      // mf模块
+      const config = this.idDefineMap[request.name]
+      return usemf.getContainer({
+        url: this.idUrlMap[request.name],
+        name: config.name,
+        customGetContainer: remoteType === "promise" ? () => new Function(`return ${this.idUrlMap[request.name]}`)() : undefined,
+      })
+    }
+  },
   /**
    * dep发起的请求, 不会进此api
    * id: @scope....
@@ -85,7 +98,8 @@ const obj = {
     })
   },
   async _importShare(id) {
-    const [prefix, scope, pkg, version] = id.split(":")
+    id = id.replace("mfshare:", "")
+    const [scope, pkg, version] = id.indexOf(":") > -1 ? id.split(":") : id.split("/")
     const fn = await usemf.getShareScopes()[scope][pkg][version].get()
     return fn()
   },
@@ -130,11 +144,12 @@ const obj = {
    * @returns 
    */
   async _resolveMfEntry(loadModule, request) {
+    await loadModule.continerInitPromise
     const {entry} = request
     if (entry) {
       return loadModule("./" + entry)
     }
-    return loadModule
+    return loadModule()
   },
   setConfig,
 }

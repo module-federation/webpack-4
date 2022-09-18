@@ -20,7 +20,7 @@
 ``` js
 window.wpmjs.import("@scope/name/entry?query=1&query2=2")
 window.wpmjs.import("http://a.com")
-window.wpmjs.import("mfshare:scope:version:react")
+window.wpmjs.import("mfshare:scope/version/react")
 ```
 
 ### Usage example:
@@ -132,7 +132,7 @@ import(str)
   * window.wpmjs.import("react")
   * window.wpmjs.import("antd@latest/button?a=2")
   * window.wpmjs.import("http://a.com")
-  * window.wpmjs.import("mfshare:scope:version:react")
+  * window.wpmjs.import("mfshare:scope/version/react")
 
 | param          | required  | type     | default   | desc               |
 |----------------|------|---------|---------|------------------|

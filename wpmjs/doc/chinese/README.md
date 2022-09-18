@@ -15,7 +15,7 @@
 ``` js
 window.System.__wpmjs__.import("@scope/name/entry?query=1&query2=2")
 window.wpmjs.import("http://a.com")
-window.wpmjs.import("mfshare:scope:version:react")
+window.wpmjs.import("mfshare:scope/version/react")
 ```
 
 ### 使用示例：
@@ -115,7 +115,7 @@ window.System.__wpmjs__.setConfig({
 import(str)
   * window.wpmjs.import("antd@latest/button?a=2")
   * window.wpmjs.import("http://a.com")
-  * window.wpmjs.import("mfshare:scope:version:react")
+  * window.wpmjs.import("mfshare:scope/version/react")
 
 | 配置项          | 必填  | 类型     | 默认值   | 作用               |
 |----------------|------|---------|---------|------------------|
