@@ -13,7 +13,6 @@ https://stackblitz.com/github/wpmjs/wpmjs/tree/main/examples/mf-webpack4
 // webpack.config.js
 const MF = require("mf-webpack4")
 module.exports = {
-  entry: "src/index.js",
   plugins: [
 
     new MF({
