@@ -1,6 +1,6 @@
 {
   "name": "mf-webpack4",
-  "version": "1.0.9",
+  "version": "1.0.10",
   "description": "webpack4 module federation",
   "repository": {
     "type": "git",
@@ -27,7 +27,7 @@
     "webpack-virtual-modules": "^0.4.4",
     "pkg-dir": "5",
     "pre-get": "^1.0.5",
-    "wpmjs": "^2.3.10",
+    "wpmjs": "2.3.10",
     "semver": "^7.3.7",
     "resolve-cwd": "^3.0.0"
   },
