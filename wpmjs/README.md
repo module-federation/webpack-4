@@ -46,7 +46,15 @@ window.wpmjs.setConfig({
     "test": "test",
 
     // module federation need idDefineMap
-    "mfpkg": "http://localhost:3000/remoteEntry.js"
+    "mfpkg": "http://localhost:3000/remoteEntry.js",
+    "promiseRemote": `promise {
+      init() {},
+      get(name) {
+        return function() {
+          return "promiseRemote test"
+        }
+      }
+    }`
   },
   /**
     * Remote package in dev mode, such as react.development version for hot update during development
@@ -69,6 +77,9 @@ window.wpmjs.setConfig({
     "mfpkg": {
       remoteType: "mf",
       name: "app1"
+    },
+    "promiseRemote": {
+      remoteType: "promise"
     }
   },
 })

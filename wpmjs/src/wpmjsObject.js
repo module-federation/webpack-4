@@ -1,5 +1,5 @@
 import preget from 'pre-get';
-import usemf from '/Users/zhanghongen/Desktop/open-code/usemf/dist/index.js'
+import usemf from 'usemf'
 import resolveRequest from './utils/resolveRequest';
 
 const obj = {
@@ -10,7 +10,8 @@ const obj = {
   idDefineMap: {
     // id: {
     //   // "" 表示umd或system
-    //   remoteType: "" | "mf",
+    //   // "promise"返回的是mf的规范{get(){},init(){}}
+    //   remoteType: "" | "mf" | "promise",
     //   name,
       // shared: {
       //   shareScope,
@@ -64,12 +65,14 @@ const obj = {
           return this._importShare(id)
         }
         const request = resolveRequest(id)
-        if (this.idDefineMap[request.name]?.remoteType === "mf") {
+        const remoteType = this.idDefineMap[request.name]?.remoteType
+        if (remoteType === "mf" || remoteType === "promise") {
           // mf模块
           const config = this.idDefineMap[request.name]
           return this._resolveMfEntry(usemf.import({
             url: this.idUrlMap[request.name],
             name: config.name,
+            customGetContainer: remoteType === "promise" ? () => new Function(`return ${this.idUrlMap[request.name]}`)() : undefined,
           }), request)
         }
         // amd umd system等模块规范, 使用systemjs.import
