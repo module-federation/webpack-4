@@ -1,6 +1,6 @@
 {
     "name": "wpmjs",
-    "version": "2.3.16",
+    "version": "2.3.18",
     "author": "",
     "description": "Make systemjs load resources by package name",
     "keywords": [
@@ -41,6 +41,6 @@
         "lodash-es": "^4.17.21",
         "pre-get": "^1.0.7",
         "systemjs": "^6.12.2",
-        "usemf": "^0.4.10"
+        "usemf": "^0.4.12"
     }
 }
