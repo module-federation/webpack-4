@@ -42,7 +42,7 @@ https://webpack.js.org/plugins/module-federation-plugin/
 ``` js
 1. shared: ["react"]
 2. shared: {react: "17.0.2"}
-3. shared: {react: {eager, requiredVersion, shareScope, singleton, version}}
+3. shared: {react: {"import", eager, requiredVersion, shareScope, singleton, version}}
 ```
 
 ### remotes
