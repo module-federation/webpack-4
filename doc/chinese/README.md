@@ -2,7 +2,8 @@
 Module Federation of webpack4
 
 ### 在线尝试:
-https://stackblitz.com/github/wpmjs/wpmjs/tree/main/examples/mf-webpack4
+* [webpack4 + webpack5](https://stackblitz.com/github/wpmjs/wpmjs/tree/main/examples/mf-webpack4)
+* [vue-cli + umi-react](https://stackblitz.com/github/wpmjs/wpmjs/tree/main/examples/vue-cli-umi-react)
 
 ### 示例:
 ``` js
