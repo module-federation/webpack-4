@@ -8,7 +8,7 @@ Module Federation of webpack4
 ### 示例:
 ``` js
 // webpack.config.js
-const MF = require("mf-webpack4")
+const MF = require("@module-federation/webpack-4")
 module.exports = {
   plugins: [
 
@@ -77,7 +77,7 @@ exposes: {
 ```
 
 ## 与webpack5的差异
-[mf-webpack4](https://www.npmjs.com/package/mf-webpack4)插件已经实现了module-federation的主要能力, 并且可以在[webpack4和webpack5互相引用](https://stackblitz.com/github/wpmjs/wpmjs/tree/main/examples/mf-webpack4) , 下面说明下哪些参数是插件是未支持的
+[@module-federation/webpack-4](https://www.npmjs.com/package/@module-federation/webpack-4)插件已经实现了module-federation的主要能力, 并且可以在[webpack4和webpack5互相引用](https://stackblitz.com/github/wpmjs/wpmjs/tree/main/examples/mf-webpack4) , 下面说明下哪些参数是插件是未支持的
 
 ## 不支持的参数
 
