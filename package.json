@@ -1,6 +1,6 @@
 {
   "name": "@module-federation/webpack-4",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "Webpack 4 Module Federation Plugin",
   "repository": {
     "type": "git",
