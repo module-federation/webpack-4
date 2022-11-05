@@ -6,8 +6,8 @@
 
 
 ### Try online:
-* [webpack4 + webpack5](https://stackblitz.com/github/wpmjs/wpmjs/tree/main/examples/mf-webpack4)
-* [vue-cli + umi-react](https://stackblitz.com/github/wpmjs/wpmjs/tree/main/examples/vue-cli-umi-react)
+* [webpack4 + webpack5](https://stackblitz.com/github/wpmjs/examples/tree/main/webpack4-module-federation/webpack4-5-module-federation)
+* [vue-cli + umi-react](https://stackblitz.com/github/wpmjs/examples/tree/main/webpack4-module-federation/webpack4-vue-cli-umi-react)
 
 ### Examples:
 ``` js

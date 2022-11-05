@@ -26,9 +26,7 @@
   "license": "ISC",
   "dependencies": {
     "pkg-dir": "5",
-    "pre-get": "^1.0.5",
     "resolve-cwd": "^3.0.0",
-    "semver": "^7.3.7",
     "webpack-virtual-modules": "^0.4.4",
     "wpmjs": "^2.3.18"
   },

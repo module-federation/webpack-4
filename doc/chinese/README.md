@@ -1,9 +1,11 @@
 ## mf-webpack4
 Module Federation of webpack4
 
+[![npm](https://img.shields.io/npm/v/@module-federation/webpack-4.svg)](https://www.npmjs.com/package/@module-federation/webpack-4)
+
 ### 在线尝试:
-* [webpack4 + webpack5](https://stackblitz.com/github/wpmjs/wpmjs/tree/main/examples/mf-webpack4)
-* [vue-cli + umi-react](https://stackblitz.com/github/wpmjs/wpmjs/tree/main/examples/vue-cli-umi-react)
+* [webpack4 + webpack5](https://stackblitz.com/github/wpmjs/examples/tree/main/webpack4-module-federation/webpack4-5-module-federation)
+* [vue-cli + umi-react](https://stackblitz.com/github/wpmjs/examples/tree/main/webpack4-module-federation/webpack4-vue-cli-umi-react)
 
 ### 示例:
 ``` js
