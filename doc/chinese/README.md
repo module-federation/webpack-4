@@ -1,7 +1,7 @@
-## mf-webpack4
-Module Federation of webpack4
+## Module Federation of webpack4
 
-[![npm](https://img.shields.io/npm/v/@module-federation/webpack-4.svg)](https://www.npmjs.com/package/@module-federation/webpack-4)
+<!-- [![npm](https://img.shields.io/npm/v/@module-federation/webpack-4.svg)](https://www.npmjs.com/package/@module-federation/webpack-4) -->
+[![npm](https://img.shields.io/npm/v/mf-webpack4.svg)](https://www.npmjs.com/package/mf-webpack4)
 
 ### 在线尝试:
 * [webpack4 + webpack5](https://stackblitz.com/github/wpmjs/examples/tree/main/webpack4-module-federation/webpack4-5-module-federation)
@@ -10,7 +10,7 @@ Module Federation of webpack4
 ### 示例:
 ``` js
 // webpack.config.js
-const MF = require("@module-federation/webpack-4")
+const MF = require("mf-webpack4")
 module.exports = {
   plugins: [
 
@@ -79,7 +79,7 @@ exposes: {
 ```
 
 ## 与webpack5的差异
-[@module-federation/webpack-4](https://www.npmjs.com/package/@module-federation/webpack-4)插件已经实现了module-federation的主要能力, 并且可以在[webpack4和webpack5互相引用](https://stackblitz.com/github/wpmjs/wpmjs/tree/main/examples/mf-webpack4) , 下面说明下哪些参数是插件是未支持的
+@module-federation/webpack-4插件已经实现了module-federation的主要能力, 并且可以在[webpack4和webpack5互相引用](https://stackblitz.com/github/wpmjs/wpmjs/tree/main/examples/mf-webpack4) , 下面说明下哪些参数是插件是未支持的
 
 ## 不支持的参数
 

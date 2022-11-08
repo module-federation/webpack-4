@@ -1,6 +1,7 @@
 ## Module Federation of webpack4
 
-[![npm](https://img.shields.io/npm/v/@module-federation/webpack-4.svg)](https://www.npmjs.com/package/@module-federation/webpack-4)
+<!-- [![npm](https://img.shields.io/npm/v/@module-federation/webpack-4.svg)](https://www.npmjs.com/package/@module-federation/webpack-4) -->
+[![npm](https://img.shields.io/npm/v/mf-webpack4.svg)](https://www.npmjs.com/package/mf-webpack4)
 
 [中文文档](doc/chinese)
 
@@ -12,7 +13,7 @@
 ### Examples:
 ``` js
 // webpack.config.js
-const MF = require("@module-federation/webpack-4")
+const MF = require("mf-webpack4")
 module.exports = {
   plugins: [
 
@@ -81,7 +82,7 @@ exposes: {
 ```
 
 ## Differences with webpack5
-[module-federation/webpack-4](https://www.npmjs.com/package/@module-federation/webpack-4)The plugin has implemented the main capabilities of module-federation, and can be found in [webpack4 and webpack5 refer to each other](https://stackblitz.com/github/wpmjs/wpmjs/tree/main/examples/module-federation/webpack-4) , The following describes which parameters are not supported by the plugin
+module-federation/webpack-4 The plugin has implemented the main capabilities of module-federation, and can be found in [webpack4 and webpack5 refer to each other](https://stackblitz.com/github/wpmjs/wpmjs/tree/main/examples/module-federation/webpack-4) , The following describes which parameters are not supported by the plugin
 
 ## unsupported parameter
 
