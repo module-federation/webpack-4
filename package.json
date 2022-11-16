@@ -1,6 +1,6 @@
 {
-  "name": "@module-federation/webpack-4",
-  "version": "1.0.1",
+  "name": "mf-webpack4",
+  "version": "1.1.0",
   "description": "Webpack 4 Module Federation Plugin",
   "repository": {
     "type": "git",
@@ -28,7 +28,7 @@
     "pkg-dir": "5",
     "resolve-cwd": "^3.0.0",
     "webpack-virtual-modules": "^0.4.4",
-    "wpmjs": "^2.3.18"
+    "wpmjs": "^2.4.0"
   },
   "peerDependencies": {
     "loader-utils": "^1.4.0",
