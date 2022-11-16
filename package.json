@@ -1,5 +1,5 @@
 {
-  "name": "mf-webpack4",
+  "name": "@module-federation/webpack-4",
   "version": "1.1.0",
   "description": "Webpack 4 Module Federation Plugin",
   "repository": {
