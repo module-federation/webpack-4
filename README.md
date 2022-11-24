@@ -5,6 +5,8 @@
 
 [中文文档](doc/chinese)
 
+support [universal-module-federation-plugin](https://github.com/zhangHongEn/universal-module-federation-plugin/tree/main/packages/universal-module-federation-plugin)
+
 
 ### Try online:
 * [webpack4 + webpack5](https://stackblitz.com/github/wpmjs/examples/tree/main/webpack4-module-federation/webpack4-5-module-federation)
