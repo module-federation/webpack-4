@@ -1,6 +1,6 @@
 {
   "name": "mf-webpack4",
-  "version": "1.2.1",
+  "version": "1.2.2",
   "description": "Webpack 4 Module Federation Plugin",
   "repository": {
     "type": "git",
@@ -29,7 +29,8 @@
     "resolve-cwd": "^3.0.0",
     "webpack-virtual-modules": "^0.4.4",
     "usemf": "^0.4.16",
-    "semverhook": "^1.1.0"
+    "semverhook": "^1.1.0",
+    "inject-webpack": "^0.2.0"
   },
   "peerDependencies": {
     "loader-utils": "^1.4.0",
