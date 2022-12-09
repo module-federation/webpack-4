@@ -30,7 +30,7 @@
     "webpack-virtual-modules": "^0.4.2",
     "usemf": "^0.4.16",
     "semverhook": "^1.1.0",
-    "inject-webpack": "^0.2.0"
+    "inject-webpack": "^0.4.2"
   },
   "peerDependencies": {
     "loader-utils": "^1.4.0",
