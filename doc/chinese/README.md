@@ -52,7 +52,7 @@ https://webpack.js.org/plugins/module-federation-plugin/
 ```
 
 ### remotes
-```
+``` js
 remotes: {
     "app2": "app2@http://localhost:9002/remoteEntry.js",
     "promiseRemote": `promise {
@@ -75,7 +75,7 @@ library required name
 default "remoteEntry.js"
 
 ### exposes
-```
+``` js
 exposes: {
     "./App": "./src/App"
 }
@@ -84,7 +84,7 @@ exposes: {
 ## 注意事项
 
 ### vue-cli 注意事项
-```
+``` js
 // vue.config.js
 const MF = require("mf-webpack4")
 
