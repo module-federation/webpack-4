@@ -28,7 +28,7 @@
     "pkg-dir": "5",
     "resolve-cwd": "^3.0.0",
     "webpack-virtual-modules": "^0.4.2",
-    "usemf": "^0.4.16",
+    "usemf": "^0.4.17",
     "semverhook": "^1.1.0",
     "inject-webpack": "^0.4.2"
   },

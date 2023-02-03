@@ -8,6 +8,7 @@
 ### 在线尝试:
 * [webpack4 + webpack5](https://stackblitz.com/github/wpmjs/examples/tree/main/webpack4-module-federation/webpack4-5-module-federation)
 * [vue-cli + umi-react](https://stackblitz.com/github/wpmjs/examples/tree/main/webpack4-module-federation/webpack4-vue-cli-umi-react)
+    * [vue-cli 注意事项](https://github.com/module-federation/webpack-4/tree/main/doc/chinese#vue-cli-注意事项)
 
 ### 示例:
 ``` js
@@ -77,6 +78,34 @@ default "remoteEntry.js"
 ```
 exposes: {
     "./App": "./src/App"
+}
+```
+
+## 注意事项
+
+### vue-cli 注意事项
+```
+// vue.config.js
+const MF = require("mf-webpack4")
+
+module.exports = {
+  // TODO: 1. parallel = false
+  // 疑似 "webpack-virtual-modules" 与 "thread-loader" 配合有bug, 在打包阶段会报错
+  parallel: false,
+  chainWebpack(chain) {
+    // TODO: 2. clear splitChunks
+    // vue-cli的splitChunks策略需要配合index.html使用， 在入口加载main.js、chunks.js...。MF的入口只有一个文件remoteEntry.js, 策略有冲突, 需要重置
+    chain.optimization.splitChunks().clear()
+    
+    chain.plugin("moduleFederation")
+      .use(MF, [{
+        name: "vueCliRemote",
+        shared: ["vue"],
+        exposes: {
+          "./App": "src/App.vue"
+        }
+      }])
+  },
 }
 ```
 

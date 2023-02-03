@@ -11,6 +11,7 @@ support [universal-module-federation-plugin](https://github.com/zhangHongEn/univ
 ### Try online:
 * [webpack4 + webpack5](https://stackblitz.com/github/wpmjs/examples/tree/main/webpack4-module-federation/webpack4-5-module-federation)
 * [vue-cli + umi-react](https://stackblitz.com/github/wpmjs/examples/tree/main/webpack4-module-federation/webpack4-vue-cli-umi-react)
+    * [vue-cli matters needing attention](https://github.com/module-federation/webpack-4#vue-cli-matters-needing-attention)
 
 ### Examples:
 ``` js
@@ -80,6 +81,33 @@ default "remoteEntry.js"
 ```
 exposes: {
     "./App": "./src/App"
+}
+```
+
+## matters needing attention
+
+### vue-cli matters needing attention
+```
+// vue.config.js
+const MF = require("mf-webpack4")
+
+module.exports = {
+  // TODO: 1. parallel = false
+  // It is suspected that there is a bug in the cooperation between "webpack-virtual-modules" and "thread-loader", and an error will be reported during the packaging stage
+  chainWebpack(chain) {
+    // TODO: 2. clear splitChunks
+    // The splitChunks strategy of vue-cli needs to be used in conjunction with index.html, and main.js, chunks.js... are loaded at the entry. The entry of MF has only one file remoteEntry.js, the policy conflicts and needs to be reset
+    chain.optimization.splitChunks().clear()
+    
+    chain.plugin("moduleFederation")
+      .use(MF, [{
+        name: "vueCliRemote",
+        shared: ["vue"],
+        exposes: {
+          "./App": "src/App.vue"
+        }
+      }])
+  },
 }
 ```
 
