@@ -94,6 +94,7 @@ const MF = require("mf-webpack4")
 module.exports = {
   // TODO: 1. parallel = false
   // It is suspected that there is a bug in the cooperation between "webpack-virtual-modules" and "thread-loader", and an error will be reported during the packaging stage
+  parallel: false,
   chainWebpack(chain) {
     // TODO: 2. clear splitChunks
     // The splitChunks strategy of vue-cli needs to be used in conjunction with index.html, and main.js, chunks.js... are loaded at the entry. The entry of MF has only one file remoteEntry.js, the policy conflicts and needs to be reset
