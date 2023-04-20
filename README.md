@@ -12,8 +12,9 @@ support [universal-module-federation-plugin](https://github.com/zhangHongEn/univ
 * [webpack4 + webpack5](https://stackblitz.com/github/wpmjs/examples/tree/main/webpack4-module-federation/webpack4-5-module-federation)
 * [vue-cli + umi-react](https://stackblitz.com/github/wpmjs/examples/tree/main/webpack4-module-federation/webpack4-vue-cli-umi-react)
     * [vue-cli matters needing attention](https://github.com/module-federation/webpack-4#vue-cli-matters-needing-attention)
+* [dynamic-remotes examples](#dynamic-remotes-examples)
 
-### Examples:
+### config examples:
 ``` js
 // webpack.config.js
 const MF = require("mf-webpack4")
@@ -43,6 +44,16 @@ module.exports = {
 
   ]
 }
+```
+
+## dynamic-remotes examples
+use [module-federation-runtime](https://github.com/zhangHongEn/universal-module-federation-plugin/tree/main/packages/module-federation-runtime) instead of [webpack internal variables and dynamic loading API](https://h3manth.com/posts/dynamic-remotes-webpack-module-federation/)
+``` js
+// 1. __webpack_share_scopes__ 
+require("module-federation-runtime").shareScopes
+
+// 2. dynamic-remotes
+require("module-federation-runtime").registerShared
 ```
 
 ## Options
@@ -118,10 +129,6 @@ module-federation/webpack-4 The plugin has implemented the main capabilities of 
 ## unsupported parameter
 
 ### options.library
-The priority of this parameter is not very high, the implementation in webpack4 is more complicated, and there are still problems in using it in webpack5, see for details "https://github.com/webpack/webpack/issues/16236" , Therefore, the implementation in webpack4 is similar to setting library.type = "global"
+The priority of this parameter is not very high, see for details "https://github.com/webpack/webpack/issues/16236" , Therefore, the implementation in webpack4 is similar to setting library.type = "global"
 
 ### options.remotes.xxx.shareScope
-The same mf container can only be initialized with one shareScope. If inconsistent webpack is set by using shareScope multiple times, it will report an error, and the shareScope can be set too much, which is confusing. Even in pure webpack5, the performance is unpredictable. It is recommended to use options. shared.xxx.shareScope, options.shareScope alternative
-
-### module-federation ecological package
-The webpack-4 plugin has not yet integrated the ability of webpack-5 related packages（[ssr、typescript、hmr、dashboard...](https://github.com/module-federation)）, However, 4 and 5 interoperability has been achieved, which can help you to use webpack5 to implement new projects without refactoring existing projects.
