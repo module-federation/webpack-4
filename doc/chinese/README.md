@@ -50,7 +50,7 @@ module.exports = {
 require("module-federation-runtime").shareScopes
 
 // 2. dynamic-remotes
-require("module-federation-runtime").registerShared
+require("module-federation-runtime").registerRemotes
 ```
 
 ## Options

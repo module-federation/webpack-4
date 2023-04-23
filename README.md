@@ -53,7 +53,7 @@ use [module-federation-runtime](https://github.com/zhangHongEn/universal-module-
 require("module-federation-runtime").shareScopes
 
 // 2. dynamic-remotes
-require("module-federation-runtime").registerShared
+require("module-federation-runtime").registerRemotes
 ```
 
 ## Options
