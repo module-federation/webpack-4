@@ -49,11 +49,21 @@ module.exports = {
 ## dynamic-remotes examples
 use [module-federation-runtime](https://github.com/zhangHongEn/universal-module-federation-plugin/tree/main/packages/module-federation-runtime) instead of [webpack internal variables and dynamic loading API](https://h3manth.com/posts/dynamic-remotes-webpack-module-federation/)
 ``` js
-// 1. __webpack_share_scopes__ 
+
+// 1. __webpack_init_sharing__ 
+await require("module-federation-runtime").initSharing("default")
+
+// 2. __webpack_share_scopes__ 
 require("module-federation-runtime").shareScopes
 
-// 2. dynamic-remotes
-require("module-federation-runtime").registerRemotes
+// 3. dynamic-remotes
+await require("module-federation-runtime").registerRemotes({
+  "mfapp01": {
+    url: "https://cdn.jsdelivr.net/npm/mf-app-01/dist/remoteEntry.js"
+  },
+})
+const AppFactory = await findModule("mfapp01", "./App")
+AppFactory()
 ```
 
 ## Options
